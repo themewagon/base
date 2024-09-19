@@ -1,22 +1,22 @@
 import * as React from 'react';
-import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
+import { styled, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { PropsWithChildren } from 'react';
 
-const drawerWidth = 240;
+const drawerWidth = 300;
+const miniDrawerWidth = 90;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -24,19 +24,14 @@ const openedMixin = (theme: Theme): CSSObject => ({
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
   }),
-  overflowX: 'hidden',
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
+  width: miniDrawerWidth,
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
-  overflowX: 'hidden',
-  width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up('sm')]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
-  },
 });
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -72,14 +67,21 @@ const AppBar = styled(MuiAppBar, {
         }),
       },
     },
+    {
+      props: ({ open }) => !open,
+      style: {
+        marginLeft: miniDrawerWidth,
+        width: `calc(100% - ${miniDrawerWidth}px)`,
+        transition: theme.transitions.create(['width', 'margin'], {
+          easing: theme.transitions.easing.sharp,
+          duration: theme.transitions.duration.leavingScreen,
+        }),
+      },
+    },
   ],
 }));
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(({ theme }) => ({
-  width: drawerWidth,
-  flexShrink: 0,
-  whiteSpace: 'nowrap',
-  boxSizing: 'border-box',
   variants: [
     {
       props: ({ open }) => open,
@@ -98,8 +100,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   ],
 }));
 
-export default function MainLayout({ children }: PropsWithChildren) {
-  const theme = useTheme();
+const MainLayout = ({ children }: React.PropsWithChildren) => {
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -111,135 +112,49 @@ export default function MainLayout({ children }: PropsWithChildren) {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
+    <Stack>
+      <AppBar open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            sx={[
-              {
-                marginRight: 5,
-              },
-              open && { display: 'none' },
-            ]}
+            sx={[open && { display: 'none' }]}
           >
-            <IconifyIcon icon="flat-color-icons:home" />
+            <IconifyIcon icon="ooui:menu" />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             Mini variant drawer
           </Typography>
         </Toolbar>
       </AppBar>
+
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? (
-              <IconifyIcon icon="flat-color-icons:home" />
-            ) : (
-              <IconifyIcon icon="flat-color-icons:home" />
-            )}
+            <IconifyIcon icon="icon-park-outline:left" />
           </IconButton>
         </DrawerHeader>
+
         <Divider />
+
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+            <ListItem key={index} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
-                sx={[
-                  {
-                    minHeight: 48,
-                    px: 2.5,
-                  },
-                  open
-                    ? {
-                        justifyContent: 'initial',
-                      }
-                    : {
-                        justifyContent: 'center',
-                      },
-                ]}
+                sx={{
+                  minHeight: 48,
+                  paddingLeft: 4.25,
+                  display: 'flex',
+                  justifyContent: open ? 'initial' : 'center',
+                  alignItems: 'center',
+                }}
               >
-                <ListItemIcon
-                  sx={[
-                    {
-                      minWidth: 0,
-                      justifyContent: 'center',
-                    },
-                    open
-                      ? {
-                          mr: 3,
-                        }
-                      : {
-                          mr: 'auto',
-                        },
-                  ]}
-                >
-                  {index % 2 === 0 ? (
-                    <IconifyIcon icon="flat-color-icons:home" />
-                  ) : (
-                    <IconifyIcon icon="flat-color-icons:home" />
-                  )}
+                <ListItemIcon>
+                  <IconifyIcon icon="solar:inbox-bold" />
                 </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  sx={[
-                    open
-                      ? {
-                          opacity: 1,
-                        }
-                      : {
-                          opacity: 0,
-                        },
-                  ]}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={[
-                  {
-                    minHeight: 48,
-                    px: 2.5,
-                  },
-                  open
-                    ? {
-                        justifyContent: 'initial',
-                      }
-                    : {
-                        justifyContent: 'center',
-                      },
-                ]}
-              >
-                <ListItemIcon
-                  sx={[
-                    {
-                      minWidth: 0,
-                      justifyContent: 'center',
-                    },
-                    open
-                      ? {
-                          mr: 3,
-                        }
-                      : {
-                          mr: 'auto',
-                        },
-                  ]}
-                >
-                  {index % 2 === 0 ? (
-                    <IconifyIcon icon="flat-color-icons:home" />
-                  ) : (
-                    <IconifyIcon icon="flat-color-icons:home" />
-                  )}
-                </ListItemIcon>
+
                 <ListItemText
                   primary={text}
                   sx={[
@@ -257,10 +172,13 @@ export default function MainLayout({ children }: PropsWithChildren) {
           ))}
         </List>
       </Drawer>
+
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         {children}
       </Box>
-    </Box>
+    </Stack>
   );
-}
+};
+
+export default MainLayout;
