@@ -156,7 +156,7 @@ const MainLayout = ({ children }: React.PropsWithChildren) => {
               <ListItemButton
                 sx={{
                   minHeight: 48,
-                  paddingLeft: 4.15,
+                  paddingLeft: 4,
                 }}
               >
                 <ListItemIcon>{item.icon && <IconifyIcon icon={item.icon} />}</ListItemIcon>
