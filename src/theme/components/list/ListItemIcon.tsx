@@ -7,7 +7,7 @@ const ListItemIcon: Components<Omit<Theme, 'components'>>['MuiListItemIcon'] = {
       minWidth: '0 !important',
       marginRight: theme.spacing(1.75),
       color: theme.palette.text.disabled,
-      fontSize: theme.typography.h5.fontSize,
+      fontSize: theme.typography.h4.fontSize,
     }),
   },
 };

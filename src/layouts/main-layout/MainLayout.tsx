@@ -5,17 +5,22 @@ import Stack from '@mui/material/Stack';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Link from '@mui/material/Link';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import ButtonBase from '@mui/material/ButtonBase';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import IconifyIcon from 'components/base/IconifyIcon';
+import Image from 'components/base/Image';
+import sitemap from 'routes/sitemap';
+import Logo from 'assets/images/Logo.png';
 
-const drawerWidth = 300;
+const drawerWidth = 250;
 const miniDrawerWidth = 90;
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -132,6 +137,12 @@ const MainLayout = ({ children }: React.PropsWithChildren) => {
 
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
+          <ButtonBase component={Link} href="/" disableRipple>
+            <Image src={Logo} alt="logo" height={44} width={44} sx={{ mr: 1.75 }} />
+            <Typography variant="h3" letterSpacing={1} fontWeight={600}>
+              Base
+            </Typography>
+          </ButtonBase>
           <IconButton onClick={handleDrawerClose}>
             <IconifyIcon icon="icon-park-outline:left" />
           </IconButton>
@@ -140,23 +151,18 @@ const MainLayout = ({ children }: React.PropsWithChildren) => {
         <Divider />
 
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={index} disablePadding sx={{ display: 'block' }}>
+          {sitemap.map((item) => (
+            <ListItem key={item.id} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
-                  paddingLeft: 4.25,
-                  display: 'flex',
-                  justifyContent: open ? 'initial' : 'center',
-                  alignItems: 'center',
+                  paddingLeft: 4.15,
                 }}
               >
-                <ListItemIcon>
-                  <IconifyIcon icon="solar:inbox-bold" />
-                </ListItemIcon>
+                <ListItemIcon>{item.icon && <IconifyIcon icon={item.icon} />}</ListItemIcon>
 
                 <ListItemText
-                  primary={text}
+                  primary={item.subheader}
                   sx={[
                     open
                       ? {
@@ -174,7 +180,6 @@ const MainLayout = ({ children }: React.PropsWithChildren) => {
       </Drawer>
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
         {children}
       </Box>
     </Stack>

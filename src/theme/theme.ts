@@ -9,6 +9,7 @@ import List from './components/list/List';
 import ListItemButton from './components/list/ListItemButton';
 import CssBaseline from './components/utils/CssBaseline';
 import ListItemIcon from './components/list/ListItemIcon';
+import ListItemText from './components/list/ListItemText';
 
 export const theme = createTheme({
   typography,
@@ -21,6 +22,7 @@ export const theme = createTheme({
     MuiList: List,
     MuiListItemButton: ListItemButton,
     MuiListItemIcon: ListItemIcon,
+    MuiListItemText: ListItemText,
     MuiCssBaseline: CssBaseline,
   },
 });
