@@ -5,7 +5,7 @@ export const white = {
 
 export const gray = {
   100: '#E0E5F2',
-  500: '#6b6b73',
+  500: '#a1a1ac',
   800: '#333333',
 };
 

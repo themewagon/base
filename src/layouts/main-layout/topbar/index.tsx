@@ -1,35 +1,101 @@
+import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
+import Badge from '@mui/material/Badge';
 import Toolbar from '@mui/material/Toolbar';
+import TextField from '@mui/material/TextField';
+import ButtonBase from '@mui/material/ButtonBase';
 import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
 import IconifyIcon from 'components/base/IconifyIcon';
+import LanguageSelect from './LanguageSelect';
+import ProfileMenu from './ProfileMenu';
+import Image from 'components/base/Image';
+import Logo from 'assets/images/Logo.png';
 
 interface TopbarProps {
-  isClosing: boolean;
+  expand: boolean;
   mobileOpen: boolean;
+  setExpand: React.Dispatch<React.SetStateAction<boolean>>;
   setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Topbar = ({ isClosing, mobileOpen, setMobileOpen }: TopbarProps) => {
-  const handleDrawerToggle = () => {
-    if (!isClosing) {
-      setMobileOpen(!mobileOpen);
-    }
+const Topbar = ({ expand, mobileOpen, setExpand, setMobileOpen }: TopbarProps) => {
+  const handleDrawerExpand = () => {
+    setExpand(!expand);
+  };
+
+  const handleMobileOpen = () => {
+    setMobileOpen(!mobileOpen);
   };
 
   return (
-    <Stack alignItems="center" justifyContent="space-between">
-      <Stack spacing={2} alignItems="center">
-        <Toolbar sx={{ display: { xm: 'block', lg: 'none' } }}>
+    <Stack
+      py={3.5}
+      alignItems="center"
+      justifyContent="space-between"
+      bgcolor="transparent"
+      zIndex={1200}
+    >
+      <Stack spacing={{ xs: 2, sm: 3 }} alignItems="center">
+        <ButtonBase
+          component={Link}
+          href="/"
+          disableRipple
+          sx={{ lineHeight: 0, display: { xs: 'none', sm: 'block', lg: 'none' } }}
+        >
+          <Image src={Logo} alt="logo" height={40} width={40} />
+        </ButtonBase>
+
+        <Toolbar>
           <IconButton
-            size="medium"
-            edge="start"
             color="inherit"
-            aria-label="menu"
-            onClick={handleDrawerToggle}
+            aria-label="expand drawer"
+            onClick={handleDrawerExpand}
+            edge="start"
+            sx={{ display: { xs: 'none', lg: 'flex' } }}
           >
-            <IconifyIcon icon="mingcute:menu-line" />
+            <IconifyIcon icon="ooui:menu" />
+          </IconButton>
+
+          <IconButton
+            color="inherit"
+            aria-label="expand drawer"
+            onClick={handleMobileOpen}
+            edge="start"
+            sx={{ display: { xs: 'flex', lg: 'none' } }}
+          >
+            <IconifyIcon icon="ooui:menu" />
           </IconButton>
         </Toolbar>
+
+        <Toolbar sx={{ ml: -1.5, display: { xm: 'block', md: 'none' } }}>
+          <IconButton size="large" edge="start" color="inherit" aria-label="search">
+            <IconifyIcon icon="eva:search-fill" />
+          </IconButton>
+        </Toolbar>
+
+        <TextField
+          variant="filled"
+          placeholder="Search"
+          sx={{ width: 340, display: { xs: 'none', md: 'flex' } }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <IconifyIcon icon="eva:search-fill" />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Stack>
+
+      <Stack spacing={{ xs: 1, sm: 2 }} alignItems="center">
+        <LanguageSelect />
+        <IconButton size="large">
+          <Badge badgeContent={2} color="error">
+            <IconifyIcon icon="ic:outline-notifications-none" />
+          </Badge>
+        </IconButton>
+        <ProfileMenu />
       </Stack>
     </Stack>
   );

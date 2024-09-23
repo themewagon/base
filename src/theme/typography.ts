@@ -2,7 +2,6 @@ import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 export const fontFamily = {
   nunitoSans: ['Nunito Sans', 'sans-serif'].join(','),
-  croissantOne: ['Croissant One', 'serif'].join(','),
 };
 
 const typography: TypographyOptions = {
