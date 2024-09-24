@@ -29,7 +29,17 @@ const Topbar = ({ expand, mobileOpen, setExpand, setMobileOpen }: TopbarProps) =
   };
 
   return (
-    <Stack alignItems="center" justifyContent="space-between" bgcolor="transparent" zIndex={1200}>
+    <Stack
+      px={3}
+      py={2}
+      position="sticky"
+      top={0}
+      alignItems="center"
+      justifyContent="space-between"
+      bgcolor="transparent.info.main"
+      sx={{ backdropFilter: 'blur(10px)' }}
+      zIndex={1200}
+    >
       <Stack spacing={{ xs: 2, sm: 3 }} alignItems="center">
         <ButtonBase
           component={Link}

@@ -54,6 +54,10 @@ export const yellow = {
   500: '#FFD66B',
 };
 
+export const transparentWhite = {
+  500: '#fafafa4d',
+}
+
 export const transparentRed = {
   500: '#d11a2a1a',
 };

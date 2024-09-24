@@ -14,12 +14,14 @@ import {
   transparentRed,
   transparentYellow,
   purple,
+  transparentWhite,
 } from './colors';
 
 declare module '@mui/material/styles' {
   interface PaletteOptions {
     neutral?: PaletteColorOptions;
     transparent?: {
+      info: PaletteColorOptions;
       success: PaletteColorOptions;
       warning: PaletteColorOptions;
       error: PaletteColorOptions;
@@ -41,6 +43,7 @@ declare module '@mui/material/styles' {
       secondary: PaletteColor;
     };
     transparent: {
+      info: PaletteColor;
       success: PaletteColor;
       warning: PaletteColor;
       error: PaletteColor;
@@ -99,6 +102,9 @@ const palette: PaletteOptions = {
     },
   },
   transparent: {
+    info: {
+      main: transparentWhite[500],
+    },
     success: {
       main: transparentGreen[500],
     },
