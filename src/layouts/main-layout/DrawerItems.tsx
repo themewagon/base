@@ -40,7 +40,7 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
         </ButtonBase>
       </Stack>
 
-      <List component="nav" sx={{ mb: 30 }}>
+      <List component="nav" sx={{ mb: 30, pt: 1.5 }}>
         {sitemap.map((item) => (
           <ListItem key={item.id} disablePadding>
             <ListItemButton
