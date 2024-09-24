@@ -63,6 +63,7 @@ const palette: PaletteOptions = {
     main: violet[500],
   },
   secondary: {
+    light: violet[300],
     main: cyan[500],
   },
   info: {
@@ -89,6 +90,10 @@ const palette: PaletteOptions = {
     primary: {
       main: cyan[300],
       state: purple[500],
+    },
+    secondary: {
+      main: violet[100],
+      state: white[100],
     },
   },
   transparent: {

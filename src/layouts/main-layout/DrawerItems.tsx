@@ -1,15 +1,15 @@
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
 import List from '@mui/material/List';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import ListItem from '@mui/material/ListItem';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
-import Button from '@mui/material/Button';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import ListItemButton from '@mui/material/ListItemButton';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 import sitemap from 'routes/sitemap';
@@ -24,7 +24,7 @@ interface DrawerItemsProps {
 const DrawerItems = ({ expand }: DrawerItemsProps) => {
   return (
     <>
-      <Stack px={1} py={4} alignItems="center" justifyContent="center">
+      <Stack py={4} alignItems="center" justifyContent="center">
         <ButtonBase component={Link} href="/" disableRipple>
           <Stack
             direction={expand ? 'row' : 'column'}
@@ -42,18 +42,27 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
 
       <List component="nav" sx={{ mb: 30 }}>
         {sitemap.map((item) => (
-          <ListItem key={item.id} disablePadding sx={{ display: 'block' }}>
+          <ListItem key={item.id} disablePadding>
             <ListItemButton
-              sx={{
+              sx={(theme) => ({
                 minHeight: 48,
-              }}
+                background: item.active
+                  ? `linear-gradient(90deg, ${theme.palette.gradients.secondary.main} 0%, ${theme.palette.gradients.secondary.state} ${expand ? '22.5%' : '62%'})`
+                  : 'info.lighter',
+              })}
             >
               <ListItemIcon sx={{ width: 48 }}>
-                {item.icon && <IconifyIcon icon={item.icon} />}
+                {item.icon && (
+                  <IconifyIcon
+                    icon={item.icon}
+                    color={item.active ? 'primary.main' : 'text.disabled'}
+                  />
+                )}
               </ListItemIcon>
 
               <ListItemText
                 primary={item.subheader}
+                color="red !mportant"
                 sx={[
                   expand
                     ? {
@@ -62,6 +71,11 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
                     : {
                         opacity: 0,
                       },
+                  {
+                    '& .MuiListItemText-primary': {
+                      color: item.active ? 'primary.main' : 'text.disabled',
+                    },
+                  },
                 ]}
               />
             </ListItemButton>
@@ -69,27 +83,21 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
         ))}
       </List>
 
-      <Box mt="auto" px={2.35} py={4}>
+      <Box mt="auto" px={2.35} pb={5}>
         <Stack
           position="relative"
           mt="auto"
           mb={4}
-          height={300}
           width={1}
+          height="auto"
+          display={expand ? 'block' : 'none'}
           sx={{ userSelect: 'none' }}
         >
           <Image src={DrawerCardImg} height={1} width={1} sx={{ objectFit: 'cover' }} />
 
-          <Stack
-            position="absolute"
-            bottom={16}
-            left={0}
-            width={1}
-            px={1.75}
-            justifyContent={'center'}
-          >
-            <Button variant="contained" color="secondary" size="small" fullWidth>
-              Go To Help Center
+          <Stack position="absolute" bottom={24} width={1} px={2} justifyContent="center">
+            <Button variant="contained" fullWidth>
+              Upgrade Now
             </Button>
           </Stack>
         </Stack>
@@ -103,7 +111,7 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
           <Stack component={Link} href="#!" spacing={1.5} alignItems="center">
             <Image src={Profile} height={50} width={50} sx={{ borderRadius: 3 }} />
             <Box sx={[expand ? { display: 'block' } : { display: 'none' }]}>
-              <Typography mb={-0.5} variant="body2" color="text.primary" fontWeight={600}>
+              <Typography mb={-0.5} variant="body2" color="text.primary" fontWeight={700}>
                 Easin Arafat
               </Typography>
               <Typography mt={-0.5} variant="caption" color="text.disabled" fontWeight={400}>

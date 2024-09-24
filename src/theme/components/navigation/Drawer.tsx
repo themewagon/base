@@ -14,8 +14,8 @@ const Drawer: Components<Omit<Theme, 'components'>>['MuiDrawer'] = {
       whiteSpace: 'nowrap',
     },
     paper: ({ theme }) => ({
-      padding: 0,
       height: '100vh',
+      padding: 0,
       border: 0,
       borderRadius: 0,
       backgroundColor: theme.palette.info.light,

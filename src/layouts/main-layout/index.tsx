@@ -11,7 +11,6 @@ const MainLayout = ({ children }: React.PropsWithChildren) => {
   return (
     <Stack>
       <Sidebar expand={expand} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
-
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Topbar
           expand={expand}

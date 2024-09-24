@@ -22,6 +22,8 @@ export const indigo = {
 };
 
 export const violet = {
+  100: '#EEEEFF',
+  300: '#C5C3FF',
   500: '#605BFF',
 };
 
