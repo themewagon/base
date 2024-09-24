@@ -67,7 +67,7 @@ const LanguageSelect = () => {
 
   return (
     <>
-      <IconButton onClick={handleFlagButtonClick} size="large">
+      <IconButton onClick={handleFlagButtonClick}>
         <IconifyIcon icon={language.flag} />
       </IconButton>
 
@@ -80,7 +80,7 @@ const LanguageSelect = () => {
         sx={{
           mt: 1.5,
           '& .MuiList-root': {
-            width: 230,
+            width: 210,
           },
         }}
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
@@ -90,7 +90,7 @@ const LanguageSelect = () => {
           return (
             <MenuItem
               key={langItem.id}
-              sx={{ bgcolor: langItem.id === language.id ? 'info.dark' : null }}
+              sx={{ bgcolor: langItem.id === language.id ? 'info.main' : null }}
               onClick={() => handleLanguageItemClick(langItem)}
             >
               <ListItemIcon sx={{ mr: 2, fontSize: 'h3.fontSize' }}>

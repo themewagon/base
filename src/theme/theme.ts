@@ -15,6 +15,13 @@ import Button from './components/buttons/Button';
 import IconButton from './components/buttons/IconButton';
 import Toolbar from './components/buttons/Toolbar';
 import ButtonBase from './components/buttons/ButtonBase';
+import Checkbox from './components/inputs/Checkbox';
+import FilledInput from './components/inputs/FilledInput';
+import FormControlLabel from './components/inputs/FormControlLabel';
+import InputAdornment from './components/inputs/InputAdornment';
+import InputBase from './components/inputs/InputBase';
+import Select from './components/inputs/Select';
+import MenuItem from './components/list/MenuItem';
 
 export const theme = createTheme({
   typography,
@@ -29,10 +36,17 @@ export const theme = createTheme({
     MuiListItemButton: ListItemButton,
     MuiListItemIcon: ListItemIcon,
     MuiListItemText: ListItemText,
+    MuiMenuItem: MenuItem,
     MuiButton: Button,
     MuiButtonBase: ButtonBase,
     MuiIconButton: IconButton,
     MuiToolbar: Toolbar,
+    MuiCheckbox: Checkbox,
+    MuiFilledInput: FilledInput,
+    MuiFormControlLabel: FormControlLabel,
+    MuiInputAdornment: InputAdornment,
+    MuiInputBase: InputBase,
+    MuiSelect: Select,
     MuiCssBaseline: CssBaseline,
   },
 });

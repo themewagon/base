@@ -57,6 +57,8 @@ const palette: PaletteOptions = {
   neutral: {
     light: gray[100],
     main: gray[500],
+    dark: gray[600],
+    darker: gray[800],
   },
   primary: {
     light: blue[500],

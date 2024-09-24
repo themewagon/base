@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import IconifyIcon from 'components/base/IconifyIcon';
-import Profile from 'assets/images/Logo.png';
+import Profile from 'assets/images/Profile.png';
 
 interface MenuItems {
   id: number;
@@ -21,32 +21,32 @@ const menuItems: MenuItems[] = [
   {
     id: 1,
     title: 'View Profile',
-    icon: 'ic:outline-account-circle',
+    icon: 'mdi:user-circle-outline',
   },
   {
     id: 2,
     title: 'Account Settings',
-    icon: 'ic:outline-manage-accounts',
+    icon: 'mdi:account-cog-outline',
   },
   {
     id: 3,
     title: 'Notifications',
-    icon: 'ic:outline-notifications-none',
+    icon: 'mdi:bell-outline',
   },
   {
     id: 4,
     title: 'Switch Account',
-    icon: 'ic:outline-switch-account',
+    icon: 'mdi:account-box-multiple-outline',
   },
   {
     id: 5,
     title: 'Help Center',
-    icon: 'ic:outline-contact-support',
+    icon: 'mdi:help-circle-outline',
   },
   {
     id: 6,
     title: 'Logout',
-    icon: 'ic:baseline-logout',
+    icon: 'mdi:logout',
   },
 ];
 
@@ -94,19 +94,20 @@ const ProfileMenu = () => {
             p: 0,
             width: 230,
           },
+          '& .MuiMenu-paper': { p: '0 !important' },
         }}
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <Box p={1}>
-          <MenuItem onClick={handleProfileMenuClose} sx={{ '&:hover': { bgcolor: 'info.dark' } }}>
+          <MenuItem onClick={handleProfileMenuClose} sx={{ '&:hover': { bgcolor: 'info.main' } }}>
             <Avatar src={Profile} sx={{ mr: 1, height: 42, width: 42 }} />
             <Stack direction="column">
               <Typography variant="body2" color="text.primary" fontWeight={600}>
-                Alex Manda
+                Easin Arafat
               </Typography>
               <Typography variant="caption" color="text.secondary" fontWeight={400}>
-                alex@example.com
+                easin@example.com
               </Typography>
             </Stack>
           </MenuItem>

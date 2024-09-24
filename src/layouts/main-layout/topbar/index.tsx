@@ -29,13 +29,7 @@ const Topbar = ({ expand, mobileOpen, setExpand, setMobileOpen }: TopbarProps) =
   };
 
   return (
-    <Stack
-      py={3.5}
-      alignItems="center"
-      justifyContent="space-between"
-      bgcolor="transparent"
-      zIndex={1200}
-    >
+    <Stack alignItems="center" justifyContent="space-between" bgcolor="transparent" zIndex={1200}>
       <Stack spacing={{ xs: 2, sm: 3 }} alignItems="center">
         <ButtonBase
           component={Link}
@@ -54,7 +48,7 @@ const Topbar = ({ expand, mobileOpen, setExpand, setMobileOpen }: TopbarProps) =
             edge="start"
             sx={{ display: { xs: 'none', lg: 'flex' } }}
           >
-            <IconifyIcon icon="ooui:menu" />
+            <IconifyIcon icon={expand ? 'line-md:menu-fold-left' : 'line-md:menu-fold-right'} />
           </IconButton>
 
           <IconButton
@@ -64,24 +58,24 @@ const Topbar = ({ expand, mobileOpen, setExpand, setMobileOpen }: TopbarProps) =
             edge="start"
             sx={{ display: { xs: 'flex', lg: 'none' } }}
           >
-            <IconifyIcon icon="ooui:menu" />
+            <IconifyIcon icon="solar:hamburger-menu-outline" />
           </IconButton>
         </Toolbar>
 
         <Toolbar sx={{ ml: -1.5, display: { xm: 'block', md: 'none' } }}>
-          <IconButton size="large" edge="start" color="inherit" aria-label="search">
-            <IconifyIcon icon="eva:search-fill" />
+          <IconButton edge="start" color="inherit" aria-label="search">
+            <IconifyIcon icon="prime:search" />
           </IconButton>
         </Toolbar>
 
         <TextField
           variant="filled"
           placeholder="Search"
-          sx={{ width: 340, display: { xs: 'none', md: 'flex' } }}
+          sx={{ width: 300, display: { xs: 'none', md: 'flex' } }}
           InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <IconifyIcon icon="eva:search-fill" />
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconifyIcon icon="prime:search" />
               </InputAdornment>
             ),
           }}
@@ -90,9 +84,9 @@ const Topbar = ({ expand, mobileOpen, setExpand, setMobileOpen }: TopbarProps) =
 
       <Stack spacing={{ xs: 1, sm: 2 }} alignItems="center">
         <LanguageSelect />
-        <IconButton size="large">
-          <Badge badgeContent={2} color="error">
-            <IconifyIcon icon="ic:outline-notifications-none" />
+        <IconButton>
+          <Badge color="error" badgeContent={2} sx={{ '& .MuiBadge-badge': { top: 6, right: 2 } }}>
+            <IconifyIcon icon="mdi:bell-outline" />
           </Badge>
         </IconButton>
         <ProfileMenu />
