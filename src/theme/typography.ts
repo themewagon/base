@@ -1,11 +1,11 @@
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 export const fontFamily = {
-  nunitoSans: ['Nunito Sans', 'sans-serif'].join(','),
+  nunito: ['Nunito', 'sans-serif'].join(','),
 };
 
 const typography: TypographyOptions = {
-  fontFamily: fontFamily.nunitoSans,
+  fontFamily: fontFamily.nunito,
   h1: {
     fontSize: '3rem',
     fontWeight: 700,
