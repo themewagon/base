@@ -1,11 +1,11 @@
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import TopCards from 'components/sections/dashboard/top-cards';
 
 const Dashboard = () => {
   return (
-    <Stack alignItems="center" justifyContent="center" height="100vh" width={1}>
-      <Typography variant="h1">Welcome</Typography>
-    </Stack>
+    <Box>
+      <TopCards />
+    </Box>
   );
 };
 
