@@ -10,17 +10,21 @@ import {
   red,
   green,
   yellow,
-  transparentGreen,
-  transparentRed,
-  transparentYellow,
   purple,
+  transparentRed,
+  transparentGreen,
+  transparentYellow,
   transparentWhite,
+  transparentBlue,
+  transparentViolet,
 } from './colors';
 
 declare module '@mui/material/styles' {
   interface PaletteOptions {
     neutral?: PaletteColorOptions;
     transparent?: {
+      primary: PaletteColorOptions;
+      secondary: PaletteColorOptions;
       info: PaletteColorOptions;
       success: PaletteColorOptions;
       warning: PaletteColorOptions;
@@ -43,6 +47,8 @@ declare module '@mui/material/styles' {
       secondary: PaletteColor;
     };
     transparent: {
+      primary: PaletteColor;
+      secondary: PaletteColor;
       info: PaletteColor;
       success: PaletteColor;
       warning: PaletteColor;
@@ -61,15 +67,15 @@ const palette: PaletteOptions = {
     light: gray[100],
     main: gray[500],
     dark: gray[600],
-    darker: gray[800],
+    darker: gray[700],
   },
   primary: {
-    light: blue[500],
+    light: violet[300],
     main: violet[500],
   },
   secondary: {
-    light: violet[300],
-    main: cyan[500],
+    light: cyan[500],
+    main: blue[500],
   },
   info: {
     light: white[100],
@@ -102,6 +108,12 @@ const palette: PaletteOptions = {
     },
   },
   transparent: {
+    primary: {
+      main: transparentViolet[500],
+    },
+    secondary: {
+      main: transparentBlue[500],
+    },
     info: {
       main: transparentWhite[500],
     },
@@ -112,6 +124,7 @@ const palette: PaletteOptions = {
       main: transparentYellow[500],
     },
     error: {
+      light: transparentRed[200],
       main: transparentRed[500],
     },
   },

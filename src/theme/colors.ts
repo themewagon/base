@@ -7,6 +7,7 @@ export const gray = {
   100: '#E0E5F2',
   500: '#A1A1AC',
   600: '#717178',
+  700: '#555555',
   800: '#333333',
 };
 
@@ -59,6 +60,7 @@ export const transparentWhite = {
 }
 
 export const transparentRed = {
+  200: '#ff8f6b1a',
   500: '#d11a2a1a',
 };
 
@@ -69,3 +71,11 @@ export const transparentGreen = {
 export const transparentYellow = {
   500: '#ffd66b1a',
 };
+
+export const transparentBlue = {
+  500: '#5b93ff1a',
+}
+
+export const transparentViolet = {
+  500: '#605bff1a',
+}

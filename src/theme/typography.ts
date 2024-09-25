@@ -23,7 +23,7 @@ const typography: TypographyOptions = {
     fontWeight: 700,
   },
   h5: {
-    fontSize: '1.25rem',
+    fontSize: '1.375rem',
     fontWeight: 700,
   },
   h6: {
