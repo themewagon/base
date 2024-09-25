@@ -1,11 +1,15 @@
 import Grid from '@mui/material/Grid';
+import Reports from 'components/sections/dashboard/reports';
 import TopCards from 'components/sections/dashboard/top-cards';
 
 const Dashboard = () => {
   return (
-    <Grid container px={3.75} spacing={2.5}>
+    <Grid container px={3.75} spacing={3.75}>
       <Grid item xs={12}>
         <TopCards />
+      </Grid>
+      <Grid item xs={12} lg={7}>
+        <Reports />
       </Grid>
     </Grid>
   );
