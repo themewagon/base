@@ -5,7 +5,7 @@ const Paper: Components<Omit<Theme, 'components'>>['MuiPaper'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       padding: theme.spacing(3.5),
-      backgroundColor: theme.palette.info.light,
+      backgroundColor: theme.palette.info.lighter,
       borderRadius: theme.shape.borderRadius * 2.5,
       boxShadow: 'none',
 

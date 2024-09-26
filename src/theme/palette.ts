@@ -17,6 +17,7 @@ import {
   transparentWhite,
   transparentBlue,
   transparentViolet,
+  indigo,
 } from './colors';
 
 declare module '@mui/material/styles' {
@@ -70,6 +71,7 @@ const palette: PaletteOptions = {
     darker: gray[700],
   },
   primary: {
+    lighter: indigo[500],
     light: violet[300],
     main: violet[500],
   },
@@ -78,9 +80,9 @@ const palette: PaletteOptions = {
     main: blue[500],
   },
   info: {
-    light: white[100],
+    lighter: white[100],
     main: white[200],
-    dark: darkblue[500],
+    darker: darkblue[500],
   },
   success: {
     main: green[500],

@@ -33,18 +33,21 @@ const ReportsChart = ({ data, ...rest }: ClientChartProps) => {
   const option = useMemo(
     () => ({
       grid: {
-        top: 24,
+        top: 36,
         bottom: 36,
-        left: 44,
-        right: 24,
+        left: 50,
+        right: 0,
         containerLabel: true,
       },
       tooltip: {
         trigger: 'axis',
         axisPointer: {
-          type: 'none',
-          label: {
-            backgroundColor: theme.palette.info.light,
+          type: 'line',
+          snap: true,
+          lineStyle: {
+            type: 'dashed',
+            width: 1,
+            color: theme.palette.primary.main,
           },
         },
         backgroundColor: theme.palette.primary.dark,
@@ -91,7 +94,19 @@ const ReportsChart = ({ data, ...rest }: ClientChartProps) => {
       },
       xAxis: {
         type: 'category',
-        data: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+        data: [
+          '10am',
+          '11am',
+          '12pm',
+          '01pm',
+          '02pm',
+          '03pm',
+          '04pm',
+          '05pm',
+          '06pm',
+          '07pm',
+          '08pm',
+        ],
         axisTick: {
           show: false,
         },
@@ -99,35 +114,39 @@ const ReportsChart = ({ data, ...rest }: ClientChartProps) => {
           show: false,
         },
         axisLabel: {
-          margin: 10,
-          color: theme.palette.text.primary,
+          margin: 20,
+          align: 'left',
+          color: theme.palette.text.disabled,
           fontSize: theme.typography.caption.fontSize,
           fontFamily: theme.typography.fontFamily,
-          fontWeight: 600,
+          fontWeight: 400,
         },
         splitLine: {
-          show: true,
-          lineStyle: {
-            type: 'solid',
-            width: 1,
-            color: theme.palette.info.main,
-          },
+          show: false,
         },
         boundaryGap: 0,
       },
       yAxis: {
         type: 'value',
-        min: 1,
-        minInterval: 1,
+        interval: 20000,
+        max: 100000,
         splitLine: {
-          show: false,
+          show: true,
+          lineStyle: {
+            width: 1,
+            type: 'solid',
+            color: theme.palette.info.main,
+          },
         },
         axisLabel: {
-          margin: 20,
-          color: theme.palette.text.primary,
+          margin: 15,
+          color: theme.palette.text.disabled,
           fontFamily: theme.typography.fontFamily,
           fontSize: theme.typography.caption.fontSize,
-          fontWeight: 600,
+          fontWeight: 400,
+          formatter: (value: number) => {
+            return value >= 1000 ? `${value / 1000}K` : value;
+          },
         },
       },
       series: [
@@ -140,17 +159,25 @@ const ReportsChart = ({ data, ...rest }: ClientChartProps) => {
             focus: 'none',
             scale: 3,
             itemStyle: {
-              borderWidth: 4,
+              borderWidth: 3,
+              borderColor: theme.palette.primary.lighter,
+              color: theme.palette.info.lighter,
             },
           },
           lineStyle: {
-            width: 3,
+            width: 4,
             type: 'solid',
             cap: 'round',
-            color: theme.palette.text.primary,
-            shadowColor: theme.palette.info.dark,
-            shadowOffsetX: -2,
-            shadowOffsetY: 12,
+            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+              { offset: 0, color: theme.palette.gradients.primary.main },
+              { offset: 1, color: theme.palette.gradients.primary.state },
+            ]),
+          },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+              { offset: 0, color: 'rgba(94, 195, 255, 0.05)' },
+              { offset: 1, color: 'rgba(253, 93, 239, 0.05)' },
+            ]),
           },
         },
       ],
