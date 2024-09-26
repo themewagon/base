@@ -78,4 +78,5 @@ export const transparentBlue = {
 
 export const transparentViolet = {
   500: '#605bff1a',
+  700: '#605BFF2B',
 }

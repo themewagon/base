@@ -4,6 +4,7 @@ import * as echarts from 'echarts/core';
 import ReactEchart from 'components/base/ReactEchart';
 import { CanvasRenderer } from 'echarts/renderers';
 import { LineChart } from 'echarts/charts';
+import { formatNumber } from 'helpers/formatNumber';
 
 import {
   TitleComponent,
@@ -35,7 +36,7 @@ const ReportsChart = ({ data, ...rest }: ClientChartProps) => {
       grid: {
         top: 36,
         bottom: 36,
-        left: 50,
+        left: 45,
         right: 0,
         containerLabel: true,
       },
@@ -50,8 +51,8 @@ const ReportsChart = ({ data, ...rest }: ClientChartProps) => {
             color: theme.palette.primary.main,
           },
         },
-        backgroundColor: theme.palette.primary.dark,
-        padding: [10, 18, 10, 18],
+        backgroundColor: theme.palette.text.primary,
+        padding: [8, 28, 8, 28],
         borderRadius: 10,
         borderWidth: 0,
         textStyle: {
@@ -85,8 +86,9 @@ const ReportsChart = ({ data, ...rest }: ClientChartProps) => {
             const dataValue = Math.round(params[0].data);
             const arrowPosition = isTopOffset ? 'bottom:-14px;' : 'top:-14px;';
             return `<div style="position:relative; border-radius:10px;">
-              <p style="font-size:${theme.typography.body2.fontSize}; font-weight:500">${dataValue} Task</p>
-              <span style="position:absolute; ${arrowPosition} left:50%; transform:translate(-50%) rotate(45deg); width:12px; height:12px; background:${theme.palette.primary.dark}; border-top:none; border-left:none; border-right:none; border-bottom:none; z-index:-10000;"></span>
+              <p style="font-size:${theme.typography.caption.fontSize}; font-weight:400; text-align:center;">Sales</p>
+              <p style="font-size:${theme.typography.body2.fontSize}; font-weight:600; text-align:center;">${formatNumber(dataValue)}</p>
+              <span style="position:absolute; ${arrowPosition} left:50%; transform:translate(-50%) rotate(45deg); width:12px; height:12px; background:${theme.palette.text.primary}; border-top:none; border-left:none; border-right:none; border-bottom:none; z-index:-10000;"></span>
             </div>`;
           }
           return '';
@@ -172,6 +174,10 @@ const ReportsChart = ({ data, ...rest }: ClientChartProps) => {
               { offset: 0, color: theme.palette.gradients.primary.main },
               { offset: 1, color: theme.palette.gradients.primary.state },
             ]),
+            shadowColor: theme.palette.transparent.primary.dark,
+            shadowOffsetX: 0,
+            shadowOffsetY: 4,
+            shadowBlur: 4,
           },
           areaStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [

@@ -1,9 +1,8 @@
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import IconifyIcon from 'components/base/IconifyIcon';
 import ReportsChart from './ReportsChart';
+import ActionMenu from './ActionMenu';
 
 const Reports = () => {
   return (
@@ -13,12 +12,13 @@ const Reports = () => {
           Reports
         </Typography>
 
-        <IconButton size="small">
-          <IconifyIcon icon="solar:menu-dots-bold" color="neutral.dark" />
-        </IconButton>
+        <ActionMenu />
       </Stack>
 
-      <ReportsChart data={[56000, 32000, 66000, 52000, 88000, 44000, 58000, 34000, 65000, 56000, 86000]} sx={{ height: '320px !important' }} />
+      <ReportsChart
+        data={[56000, 32000, 66000, 52000, 88000, 44000, 58000, 34000, 65000, 56000, 86000]}
+        sx={{ height: '320px !important' }}
+      />
     </Paper>
   );
 };

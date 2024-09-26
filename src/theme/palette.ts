@@ -112,6 +112,7 @@ const palette: PaletteOptions = {
   transparent: {
     primary: {
       main: transparentViolet[500],
+      dark: transparentViolet[700],
     },
     secondary: {
       main: transparentBlue[500],
