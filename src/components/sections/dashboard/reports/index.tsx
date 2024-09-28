@@ -2,7 +2,25 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ReportsChart from './ReportsChart';
-import ActionMenu from './ActionMenu';
+import ActionMenu from 'components/common/ActionMenu';
+
+const actions = [
+  {
+    id: 1,
+    icon: 'mage:refresh',
+    title: 'Refresh',
+  },
+  {
+    id: 2,
+    icon: 'solar:export-linear',
+    title: 'Export',
+  },
+  {
+    id: 3,
+    icon: 'mage:share',
+    title: 'Share',
+  },
+];
 
 const Reports = () => {
   return (
@@ -12,7 +30,7 @@ const Reports = () => {
           Reports
         </Typography>
 
-        <ActionMenu />
+        <ActionMenu actions={actions} />
       </Stack>
 
       <ReportsChart
