@@ -7,11 +7,11 @@ export const fontFamily = {
 const typography: TypographyOptions = {
   fontFamily: fontFamily.nunito,
   h1: {
-    fontSize: '3rem',
+    fontSize: '2.25rem',
     fontWeight: 700,
   },
   h2: {
-    fontSize: '2.25rem',
+    fontSize: '1.875rem',
     fontWeight: 700,
   },
   h3: {
