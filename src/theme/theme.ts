@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import type {} from '@mui/x-data-grid/themeAugmentation';
 import palette from './palette';
 import typography from './typography';
 import customShadows from './shadows';
@@ -22,6 +23,7 @@ import InputAdornment from './components/inputs/InputAdornment';
 import InputBase from './components/inputs/InputBase';
 import Select from './components/inputs/Select';
 import MenuItem from './components/list/MenuItem';
+import DataGrid from './components/data-grid/DataGrid';
 
 export const theme = createTheme({
   typography,
@@ -47,6 +49,7 @@ export const theme = createTheme({
     MuiInputAdornment: InputAdornment,
     MuiInputBase: InputBase,
     MuiSelect: Select,
+    MuiDataGrid: DataGrid,
     MuiCssBaseline: CssBaseline,
   },
 });
