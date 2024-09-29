@@ -24,6 +24,11 @@ import InputBase from './components/inputs/InputBase';
 import Select from './components/inputs/Select';
 import MenuItem from './components/list/MenuItem';
 import DataGrid from './components/data-grid/DataGrid';
+import Card from './components/cards/Card';
+import CardContent from './components/cards/CardContent';
+import CardMedia from './components/cards/CardMedia';
+import Rating from './components/data-display/Rating';
+import Divider from './components/data-display/Divider';
 
 export const theme = createTheme({
   typography,
@@ -48,7 +53,12 @@ export const theme = createTheme({
     MuiFormControlLabel: FormControlLabel,
     MuiInputAdornment: InputAdornment,
     MuiInputBase: InputBase,
+    MuiDivider: Divider,
     MuiSelect: Select,
+    MuiRating: Rating,
+    MuiCard: Card,
+    MuiCardContent: CardContent,
+    MuiCardMedia: CardMedia,
     MuiDataGrid: DataGrid,
     MuiCssBaseline: CssBaseline,
   },

@@ -125,6 +125,7 @@ const palette: PaletteOptions = {
     },
     warning: {
       main: transparentYellow[500],
+      dark: transparentYellow[700],
     },
     error: {
       light: transparentRed[200],

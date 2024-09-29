@@ -57,7 +57,7 @@ export const yellow = {
 
 export const transparentWhite = {
   500: '#fafafa4d',
-}
+};
 
 export const transparentRed = {
   200: '#ff8f6b1a',
@@ -70,13 +70,14 @@ export const transparentGreen = {
 
 export const transparentYellow = {
   500: '#ffd66b1a',
+  700: '#ffd66b66',
 };
 
 export const transparentBlue = {
   500: '#5b93ff1a',
-}
+};
 
 export const transparentViolet = {
   500: '#605bff1a',
   700: '#605BFF2B',
-}
+};
