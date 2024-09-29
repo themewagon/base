@@ -32,11 +32,11 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       },
     }),
     cellCheckbox: {
-      justifyContent: 'flex-end',
+      justifyContent: 'flex-start',
     },
     columnHeaderCheckbox: {
       '& .MuiDataGrid-columnHeaderTitleContainer': {
-        justifyContent: 'flex-end',
+        justifyContent: 'flex-start',
       },
     },
     columnHeader: ({ theme }) => ({
@@ -49,7 +49,7 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       },
     }),
     columnHeaderTitle: ({ theme }) => ({
-      color: theme.palette.text.disabled,
+      color: theme.palette.text.primary,
       fontSize: theme.typography.body2.fontSize,
       fontWeight: 500,
     }),

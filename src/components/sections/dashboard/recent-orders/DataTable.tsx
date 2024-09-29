@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import LinearProgress from '@mui/material/LinearProgress';
 import { DataGrid, GridColDef, useGridApiRef, GridApi } from '@mui/x-data-grid';
 import DataGridFooter from 'components/common/DataGridFooter';
-import IconifyIcon from 'components/base/IconifyIcon';
 import ActionMenu from 'components/common/ActionMenu';
+import Image from 'components/base/Image';
 import { rows } from 'data/complexTableData';
 
 const actions = [
@@ -30,125 +29,98 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
   {
     field: '__check__',
     headerName: '',
-    width: 52,
+    width: 40,
     sortable: false,
     disableColumnMenu: true,
   },
   {
     field: 'id',
-    headerName: 'ID',
+    headerName: 'Tracking no',
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 130,
-    renderHeader: () => (
-      <Typography variant="body2" color="text.disabled" fontWeight={500} ml={1}>
-        ID
-      </Typography>
-    ),
+    minWidth: 120,
+  },
+  {
+    field: 'product',
+    headerName: 'Product Name',
+    editable: false,
+    align: 'left',
+    flex: 2,
+    minWidth: 220,
     renderCell: (params) => (
-      <Stack ml={1} height={1} direction="column" alignSelf="center" justifyContent="center">
+      <Stack height={1} spacing={1.5} alignItems="center" justifyContent="flex-start">
+        <Image
+          src={params.value.image}
+          height={42}
+          width={42}
+          sx={{ objectFit: 'cover', borderRadius: 1.5 }}
+        />
         <Typography variant="body2" fontWeight={600}>
-          {params.value}
+          {params.value.name}
         </Typography>
       </Stack>
     ),
   },
   {
-    field: 'name',
-    headerName: 'NAME',
-    editable: false,
-    align: 'left',
-    flex: 2,
-    minWidth: 190,
-  },
-  {
-    field: 'status',
-    headerName: 'STATUS',
+    field: 'price',
+    headerName: 'Price',
     headerAlign: 'left',
     editable: false,
     flex: 1,
-    minWidth: 160,
-    renderCell: (params) => {
-      const status = params.value.toLowerCase();
-      let color = '';
-      let icon = '';
-
-      if (status === 'approved') {
-        color = 'success.main';
-        icon = 'ic:baseline-check-circle';
-      } else if (status === 'error') {
-        color = 'warning.main';
-        icon = 'ic:baseline-error';
-      } else if (status === 'disable') {
-        color = 'error.main';
-        icon = 'ic:baseline-cancel';
-      }
-
-      return (
-        <Stack alignItems="center" spacing={0.8} height={1}>
-          <IconifyIcon icon={icon} color={color} fontSize="h5.fontSize" />
-          <Typography variant="body2" fontWeight={600}>
-            {params.value}
-          </Typography>
-        </Stack>
-      );
-    },
+    minWidth: 140,
   },
   {
-    field: 'date',
-    headerName: 'DATE',
+    field: 'inStock',
+    headerName: 'In Stock',
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 150,
+    minWidth: 140,
   },
   {
-    field: 'progress',
-    headerName: 'PROGRESS',
+    field: 'totalOrder',
+    headerName: 'Total Order',
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 220,
-    renderCell: (params) => {
-      return (
-        <Stack alignItems="center" pr={5} height={1} width={1}>
-          <Typography variant="body2" fontWeight={600} minWidth={40}>
-            {params.value}%
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={params.value}
-            sx={{
-              width: 1,
-              height: 6,
-              borderRadius: 10,
-              bgcolor: 'info.dark',
-              '& .MuiLinearProgress-bar': {
-                borderRadius: 10,
-              },
-            }}
-          />
-        </Stack>
-      );
-    },
+    minWidth: 140,
   },
   {
-    field: 'quantity',
-    headerName: 'QUANTITY',
-    editable: false,
+    field: 'pending',
+    headerName: 'Pending',
+    headerAlign: 'left',
     align: 'left',
-    flex: 2,
+    editable: false,
+    flex: 1,
+    minWidth: 140,
+  },
+  {
+    field: 'canceled',
+    headerName: 'Canceled',
+    headerAlign: 'left',
+    align: 'left',
+    editable: false,
+    flex: 1,
+    minWidth: 140,
+  },
+  {
+    field: 'delevered',
+    headerName: 'Delevered',
+    headerAlign: 'left',
+    align: 'left',
+    editable: false,
+    flex: 1,
     minWidth: 100,
   },
   {
     field: 'balance',
-    headerName: 'BALANCE',
+    headerName: 'Balance',
     headerAlign: 'right',
     align: 'right',
     editable: false,
     flex: 1,
-    minWidth: 100,
+    minWidth: 140,
   },
   {
     field: 'action',
