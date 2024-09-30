@@ -1,7 +1,9 @@
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import List from '@mui/material/List';
+import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import Badge from '@mui/material/Badge';
 import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import IconButton from '@mui/material/IconButton';
@@ -52,12 +54,31 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
               })}
             >
               <ListItemIcon sx={{ width: 48 }}>
-                {item.icon && (
-                  <IconifyIcon
-                    icon={item.icon}
-                    color={item.active ? 'primary.main' : 'text.disabled'}
-                  />
-                )}
+                {item.icon &&
+                  (item.messages ? (
+                    <Badge
+                      variant="dot"
+                      sx={(theme) => ({
+                        '& .MuiBadge-badge': {
+                          top: 4,
+                          right: 3,
+                          border: 2,
+                          borderColor: theme.palette.info.lighter,
+                          bgcolor: expand ? 'text.disabled' : 'error.main',
+                        },
+                      })}
+                    >
+                      <IconifyIcon
+                        icon={item.icon}
+                        color={item.active ? 'primary.main' : 'text.disabled'}
+                      />
+                    </Badge>
+                  ) : (
+                    <IconifyIcon
+                      icon={item.icon}
+                      color={item.active ? 'primary.main' : 'text.disabled'}
+                    />
+                  ))}
               </ListItemIcon>
 
               <ListItemText
@@ -78,6 +99,14 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
                   },
                 ]}
               />
+              {item.messages && (
+                <Chip
+                  label={item.messages}
+                  color="error"
+                  size="small"
+                  sx={{ opacity: expand ? 1 : 0, transition: 'opacity 0.3s ease' }}
+                />
+              )}
             </ListItemButton>
           </ListItem>
         ))}

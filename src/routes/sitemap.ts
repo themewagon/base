@@ -16,6 +16,7 @@ export interface MenuItem {
   avatar?: string;
   active?: boolean;
   items?: SubMenuItem[];
+  messages?: number;
 }
 
 const sitemap: MenuItem[] = [
@@ -55,6 +56,7 @@ const sitemap: MenuItem[] = [
     subheader: 'Messages',
     path: '/messages',
     icon: 'mage:dashboard-chart-fill',
+    messages: 49,
   },
   {
     id: 'notification',

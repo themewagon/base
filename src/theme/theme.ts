@@ -30,6 +30,7 @@ import CardMedia from './components/cards/CardMedia';
 import Rating from './components/data-display/Rating';
 import Divider from './components/data-display/Divider';
 import AppBar from './components/navigation/Appbar';
+import Chip from './components/data-display/Chip';
 
 export const theme = createTheme({
   typography,
@@ -58,6 +59,7 @@ export const theme = createTheme({
     MuiDivider: Divider,
     MuiSelect: Select,
     MuiRating: Rating,
+    MuiChip: Chip,
     MuiCard: Card,
     MuiCardContent: CardContent,
     MuiCardMedia: CardMedia,
