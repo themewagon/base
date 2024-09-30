@@ -152,7 +152,7 @@ const DataTable = ({ searchText }: TaskOverviewTableProps) => {
       density="standard"
       columns={columns}
       rows={rows}
-      rowHeight={52}
+      rowHeight={60}
       disableColumnResize
       disableColumnMenu
       disableColumnSelector

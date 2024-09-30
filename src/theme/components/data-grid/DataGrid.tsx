@@ -19,9 +19,18 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
         minWidth: 0,
       },
     }),
-    row: {
-      '&:hover': { backgroundColor: 'transparent' },
-    },
+    row: ({ theme }) => ({
+      borderRadius: theme.shape.borderRadius * 1.5,
+      '&:nth-of-type(even)': {
+        backgroundColor: theme.palette.info.main,
+      },
+      '&:hover': {
+        backgroundColor: theme.palette.info.lighter,
+        '&:nth-of-type(even)': {
+          backgroundColor: theme.palette.info.main,
+        },
+      },
+    }),
     cell: ({ theme }) => ({
       padding: 0,
       color: theme.palette.primary.darker,
@@ -43,7 +52,7 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       padding: 0,
       borderBottom: 1,
       borderColor: `${theme.palette.info.main} !important`,
-      height: '3rem !important',
+      height: '3.75rem !important',
       '&:focus-within': {
         outline: 'none !important',
       },

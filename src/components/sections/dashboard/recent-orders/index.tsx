@@ -25,7 +25,7 @@ const actions = [
 
 const RecentOrders = () => {
   return (
-    <Paper sx={{ height: 410, overflow: 'hidden' }}>
+    <Paper sx={{ height: 425, overflow: 'hidden' }}>
       <Stack mt={-0.5} alignItems="center" justifyContent="space-between">
         <Typography variant="h6" color="text.secondary">
           Recent Orders
@@ -34,7 +34,7 @@ const RecentOrders = () => {
         <ActionMenu actions={actions} />
       </Stack>
 
-      <Box mt={1} height={313} flex={1}>
+      <Box mt={1} height={357} flex={1}>
         <DataTable searchText={''} />
       </Box>
     </Paper>
