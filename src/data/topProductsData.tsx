@@ -1,7 +1,6 @@
-import iPhone from 'assets/images/products/iPhone.png';
-import Nike from 'assets/images/products/Nike.png';
+import { Nike, iPhone, Drone } from './images';
 
-export interface ProductsDataProps {
+export interface TopProductsDataProps {
   id: number | string;
   image: string;
   title: string;
@@ -10,7 +9,7 @@ export interface ProductsDataProps {
   link: string;
 }
 
-export const productsData: ProductsDataProps[] = [
+export const topProductsData: TopProductsDataProps[] = [
   {
     id: 1,
     image: Nike,
@@ -24,6 +23,14 @@ export const productsData: ProductsDataProps[] = [
     image: iPhone,
     title: 'iPhone 12',
     price: '$987',
+    rating: 4,
+    link: '#!',
+  },
+  {
+    id: 3,
+    image: Drone,
+    title: 'Aero Drone X',
+    price: '$899',
     rating: 4,
     link: '#!',
   },

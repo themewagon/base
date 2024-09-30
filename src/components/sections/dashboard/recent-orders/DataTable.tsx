@@ -52,11 +52,11 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
       <Stack height={1} spacing={1.5} alignItems="center" justifyContent="flex-start">
         <Image
           src={params.value.image}
-          height={42}
-          width={42}
+          height={30}
+          width={30}
           sx={{ objectFit: 'cover', borderRadius: 1.5 }}
         />
-        <Typography variant="body2" fontWeight={600}>
+        <Typography variant="caption" fontWeight={600}>
           {params.value.name}
         </Typography>
       </Stack>
@@ -152,7 +152,7 @@ const DataTable = ({ searchText }: TaskOverviewTableProps) => {
       density="standard"
       columns={columns}
       rows={rows}
-      rowHeight={60}
+      rowHeight={50}
       disableColumnResize
       disableColumnMenu
       disableColumnSelector

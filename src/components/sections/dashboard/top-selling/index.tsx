@@ -1,11 +1,11 @@
+import { topProductsData } from 'data/topProductsData';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
+import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import ActionMenu from 'components/common/ActionMenu';
-import { productsData } from 'data/productsData';
 import ProductCard from './ProductCard';
-import { Divider } from '@mui/material';
 
 const actions = [
   {
@@ -15,8 +15,8 @@ const actions = [
   },
   {
     id: 2,
-    icon: 'solar:export-linear',
-    title: 'Export',
+    icon: 'mage:eye',
+    title: 'View All',
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const actions = [
 
 const TopSelling = () => {
   return (
-    <Paper sx={{ height: 410 }}>
+    <Paper sx={{ height: 390 }}>
       <Stack mt={-0.5} alignItems="center" justifyContent="space-between">
         <Typography variant="h6" color="text.secondary">
           Top selling Products
@@ -37,10 +37,10 @@ const TopSelling = () => {
       </Stack>
 
       <Box mt={2.5}>
-        {productsData.slice(0, 2).map((item, index) => (
+        {topProductsData.slice(0, 2).map((item, index) => (
           <>
             <ProductCard data={item} />
-            {index !== 1 && <Divider sx={{ my: 2.5 }} />}
+            {index !== 1 && <Divider  />}
           </>
         ))}
       </Box>

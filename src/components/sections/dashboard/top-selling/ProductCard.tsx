@@ -1,14 +1,14 @@
-import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
+import Link from '@mui/material/Link';
+import Card from '@mui/material/Card';
+import Rating from '@mui/material/Rating';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import Rating from '@mui/material/Rating';
 import IconifyIcon from 'components/base/IconifyIcon';
-import Link from '@mui/material/Link';
-import { ProductsDataProps } from 'data/productsData';
+import { TopProductsDataProps } from 'data/topProductsData';
 
 interface ProductCardProps {
-  data: ProductsDataProps;
+  data: TopProductsDataProps;
 }
 
 const ProductCard = ({ data }: ProductCardProps) => {
@@ -19,8 +19,8 @@ const ProductCard = ({ data }: ProductCardProps) => {
           <CardMedia
             component="img"
             src={data.image}
-            sx={{ height: 96, width: 96 }}
-            alt="card_img"
+            sx={{ height: 100, width: 100 }}
+            alt="product_img"
           />
           <div>
             <Typography
