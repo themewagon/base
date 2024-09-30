@@ -34,7 +34,7 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     cell: ({ theme }) => ({
       padding: 0,
       color: theme.palette.primary.darker,
-      fontSize: theme.typography.body2.fontSize,
+      fontSize: theme.typography.caption.fontSize,
       fontWeight: 600,
       '&:focus-within': {
         outline: 'none !important',
@@ -52,14 +52,14 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       padding: 0,
       borderBottom: 1,
       borderColor: `${theme.palette.info.main} !important`,
-      height: '3.75rem !important',
+      height: '3rem !important',
       '&:focus-within': {
         outline: 'none !important',
       },
     }),
     columnHeaderTitle: ({ theme }) => ({
       color: theme.palette.text.primary,
-      fontSize: theme.typography.body2.fontSize,
+      fontSize: theme.typography.caption.fontSize,
       fontWeight: 500,
     }),
     iconButtonContainer: () => ({

@@ -15,12 +15,12 @@ const Checkbox: Components<Omit<Theme, 'components'>>['MuiCheckbox'] = {
     sizeMedium: ({ theme }) => ({
       padding: theme.spacing(0.75),
       '& .MuiBox-root': {
-        fontSize: theme.typography.h5.fontSize,
+        fontSize: theme.typography.h6.fontSize,
       },
     }),
     sizeSmall: ({ theme }) => ({
       '& .MuiBox-root': {
-        fontSize: theme.typography.h6.fontSize,
+        fontSize: theme.typography.body1.fontSize,
       },
     }),
   },

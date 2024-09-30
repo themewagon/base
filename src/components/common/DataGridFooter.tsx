@@ -17,11 +17,11 @@ const DataGridFooter = () => {
   const rowsCount = apiRef.current.getRowsCount();
 
   return (
-    <Stack alignItems="center" justifyContent="space-between" pl={3} pr={1.6} width={1}>
+    <Stack alignItems="center" justifyContent="space-between" width={1}>
       <Typography
         variant="body2"
         color="text.primary"
-      >{`${page * pageSize + 1}-${page * pageSize + pageSize} of ${rowsCount}`}</Typography>
+      >{`Showing ${page * pageSize + 1}-${page * pageSize + pageSize} of ${rowsCount}`}</Typography>
       <Pagination
         color="primary"
         count={pageCount}
