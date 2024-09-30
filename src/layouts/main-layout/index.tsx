@@ -8,17 +8,28 @@ const MainLayout = ({ children }: React.PropsWithChildren) => {
   const [expand, setExpand] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  const drawerWidth = 240;
+  const miniDrawerWidth = 90;
+
   return (
     <Stack>
-      <Sidebar expand={expand} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
-      <Box component="main" sx={{ flexGrow: 1, overflowX: 'hidden' }}>
+      <Sidebar
+        expand={expand}
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
+        drawerWidth={drawerWidth}
+        miniDrawerWidth={miniDrawerWidth}
+      />
+      <Box component="main" flexGrow={1} sx={{ overflowX: 'hidden' }}>
         <Topbar
           expand={expand}
           mobileOpen={mobileOpen}
           setExpand={setExpand}
           setMobileOpen={setMobileOpen}
+          drawerWidth={drawerWidth}
+          miniDrawerWidth={miniDrawerWidth}
         />
-        {children}
+        <Box mt={12}>{children}</Box>
       </Box>
     </Stack>
   );

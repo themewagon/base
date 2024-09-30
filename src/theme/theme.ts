@@ -29,6 +29,7 @@ import CardContent from './components/cards/CardContent';
 import CardMedia from './components/cards/CardMedia';
 import Rating from './components/data-display/Rating';
 import Divider from './components/data-display/Divider';
+import AppBar from './components/navigation/Appbar';
 
 export const theme = createTheme({
   typography,
@@ -37,6 +38,7 @@ export const theme = createTheme({
   components: {
     MuiStack: Stack,
     MuiDrawer: Drawer,
+    MuiAppBar: AppBar,
     MuiPaper: Paper,
     MuiList: List,
     MuiLink: Link,

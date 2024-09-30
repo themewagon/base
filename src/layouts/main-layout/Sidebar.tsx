@@ -6,28 +6,33 @@ interface SidebarProps {
   expand: boolean;
   mobileOpen: boolean;
   setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  drawerWidth: number;
+  miniDrawerWidth: number;
 }
 
-const drawerWidth = 240;
-const miniDrawerWidth = 90;
+const Sidebar = ({
+  expand,
+  mobileOpen,
+  setMobileOpen,
+  drawerWidth,
+  miniDrawerWidth,
+}: SidebarProps) => {
+  const openedMixin = (theme: Theme): CSSObject => ({
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  });
 
-const openedMixin = (theme: Theme): CSSObject => ({
-  width: drawerWidth,
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-});
+  const closedMixin = (theme: Theme): CSSObject => ({
+    width: miniDrawerWidth,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  });
 
-const closedMixin = (theme: Theme): CSSObject => ({
-  width: miniDrawerWidth,
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-});
-
-const Sidebar = ({ expand, mobileOpen, setMobileOpen }: SidebarProps) => {
   const closeMobileDrawer = (open: boolean) => () => {
     setMobileOpen(open);
   };
