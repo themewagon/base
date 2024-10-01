@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 import TopCard from './TopCard';
-import { topCardsData } from 'data/topCardData';
+import { topCardsData } from 'data/topCardsData';
 
 const TopCards = () => {
   return (

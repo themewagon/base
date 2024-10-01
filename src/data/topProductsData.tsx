@@ -1,6 +1,6 @@
 import { Nike, iPhone, Drone } from './images';
 
-export interface TopProductsDataProps {
+export interface TopProduct {
   id: number | string;
   image: string;
   title: string;
@@ -9,7 +9,7 @@ export interface TopProductsDataProps {
   link: string;
 }
 
-export const topProductsData: TopProductsDataProps[] = [
+export const topProductsData: TopProduct[] = [
   {
     id: 1,
     image: Nike,

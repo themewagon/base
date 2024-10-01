@@ -2,7 +2,7 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { TopCardDataProps } from 'data/topCardData';
+import { TopCard as TopCardDataProps } from 'data/topCardsData';
 
 interface TopCardProps {
   data: TopCardDataProps;

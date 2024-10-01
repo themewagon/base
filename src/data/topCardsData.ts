@@ -1,4 +1,4 @@
-export interface TopCardDataProps {
+export interface TopCard {
   id: string | number;
   icon: string;
   title: string;
@@ -7,7 +7,7 @@ export interface TopCardDataProps {
   iconBg: string;
 }
 
-export const topCardsData: TopCardDataProps[] = [
+export const topCardsData: TopCard[] = [
   {
     id: 1,
     icon: 'mage:heart-fill',

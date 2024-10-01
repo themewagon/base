@@ -5,10 +5,10 @@ import Rating from '@mui/material/Rating';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { TopProductsDataProps } from 'data/topProductsData';
+import { TopProduct } from 'data/topProductsData';
 
 interface ProductCardProps {
-  data: TopProductsDataProps;
+  data: TopProduct;
 }
 
 const ProductCard = ({ data }: ProductCardProps) => {
