@@ -1,3 +1,4 @@
+import { fontFamily } from 'theme/typography';
 import { useMemo } from 'react';
 import { SxProps, useTheme } from '@mui/material';
 import * as echarts from 'echarts/core';
@@ -12,7 +13,6 @@ import {
   LegendComponent,
   GraphicComponent,
 } from 'echarts/components';
-import { fontFamily } from 'theme/typography';
 
 echarts.use([
   PieChart,
@@ -25,7 +25,11 @@ echarts.use([
 ]);
 
 interface AnalyticsChartProps {
-  data: number[];
+  data: {
+    id: number | string;
+    value: number;
+    name: string;
+  }[];
   sx?: SxProps;
 }
 
@@ -37,100 +41,52 @@ const AnalyticsChart = ({ data, ...rest }: AnalyticsChartProps) => {
       tooltip: {
         trigger: 'item',
       },
+      legend: {
+        bottom: '0%',
+        itemGap: 40,
+        icon: 'roundRect',
+        itemWidth: 15,
+        itemHeight: 15,
+        textStyle: {
+          padding: [0, 0, 0, 5],
+          fontFamily: fontFamily.nunito,
+          fontSize: theme.typography.body2.fontSize,
+          color: theme.palette.text.primary,
+        },
+      },
       series: [
         {
           type: 'pie',
-          radius: ['62%', '90%'],
+          radius: ['46%', '60%'],
           avoidLabelOverlap: false,
           startAngle: 90,
           label: {
             show: false,
           },
-          data: [
-            {
-              value: 40,
-              name: 'Category A',
+          data: data.map((item) => {
+            return {
+              ...item,
               itemStyle: {
+                color:
+                  item.id === 1
+                    ? theme.palette.secondary.main
+                    : item.id === 2
+                      ? theme.palette.warning.main
+                      : item.id === 3
+                        ? theme.palette.error.light
+                        : 'transparent',
                 borderRadius: [100, 100, 15, 15],
-                color: theme.palette.secondary.main,
-              },
-            },
-            {
-              value: 60,
-              name: '',
-              itemStyle: {
-                color: 'transparent',
               },
               tooltip: {
-                show: false,
+                show: item.id === 4 ? false : true,
               },
-            },
-          ],
-          z: 3,
-        },
-        {
-          type: 'pie',
-          radius: ['68%', '90%'],
-          avoidLabelOverlap: false,
-          startAngle: 88,
-          label: {
-            show: false,
-          },
-          data: [
-            {
-              value: 60,
-              name: 'Category B',
-              itemStyle: {
-                borderRadius: [100, 100, 15, 15],
-                color: theme.palette.warning.main,
-              },
-            },
-            {
-              value: 40,
-              name: '',
-              itemStyle: {
-                color: 'transparent',
-              },
-              tooltip: {
-                show: false,
-              },
-            },
-          ],
-          z: 2,
-        },
-        {
-          type: 'pie',
-          radius: ['72%', '90%'],
-          avoidLabelOverlap: false,
-          startAngle: 88,
-          label: {
-            show: false,
-          },
-          data: [
-            {
-              value: 80,
-              name: 'Category C',
-              itemStyle: {
-                borderRadius: [100, 100, 15, 15],
-                color: theme.palette.error.light,
-              },
-            },
-            {
-              value: 20,
-              name: '',
-              itemStyle: {
-                color: 'transparent',
-              },
-              tooltip: {
-                show: false,
-              },
-            },
-          ],
+            };
+          }),
           z: 1,
         },
         {
           type: 'pie',
-          radius: ['78%', '90%'],
+          radius: ['51%', '60%'],
           silent: true,
           label: {
             show: false,
@@ -140,7 +96,7 @@ const AnalyticsChart = ({ data, ...rest }: AnalyticsChartProps) => {
               value: 1,
               name: '',
               itemStyle: {
-                color: theme.palette.info.light,
+                color: theme.palette.transparent.secondary.lighter,
               },
             },
           ],

@@ -22,18 +22,41 @@ const actions = [
   },
 ];
 
+const AnalyticsData = [
+  {
+    id: 1,
+    value: 60,
+    name: 'Sale',
+  },
+  {
+    id: 2,
+    value: 45,
+    name: 'Distribute',
+  },
+  {
+    id: 3,
+    value: 35,
+    name: 'Return',
+  },
+  {
+    id: 4,
+    value: 30,
+    name: '',
+  },
+];
+
 const Analytics = () => {
   return (
-    <Paper sx={{ pr: 0, height: 410 }}>
-      <Stack mt={-0.5} pr={3.5} alignItems="center" justifyContent="space-between">
-        <Typography variant="h6" color="text.secondary">
+    <Paper sx={{ height: 410 }}>
+      <Stack mt={-0.5} alignItems="center" justifyContent="space-between">
+        <Typography variant="h6" color="text.secondary" zIndex={1000}>
           Analytics
         </Typography>
 
         <ActionMenu actions={actions} />
       </Stack>
 
-      <AnalyticsChart data={[]} sx={{ mt: 2, height: '250px !important' }} />
+      <AnalyticsChart data={AnalyticsData} sx={{ mt: -5.5, height: '370px !important' }} />
     </Paper>
   );
 };

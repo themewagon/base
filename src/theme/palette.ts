@@ -117,6 +117,7 @@ const palette: PaletteOptions = {
       dark: transparentViolet[700],
     },
     secondary: {
+      lighter: transparentBlue[300],
       light: transparentCyan[500],
       main: transparentBlue[500],
     },
