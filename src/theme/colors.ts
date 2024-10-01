@@ -73,6 +73,10 @@ export const transparentYellow = {
   700: '#ffd66b66',
 };
 
+export const transparentCyan = {
+  500: '#26c0e21a',
+};
+
 export const transparentBlue = {
   500: '#5b93ff1a',
 };

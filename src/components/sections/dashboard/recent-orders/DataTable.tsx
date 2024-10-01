@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
+import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { DataGrid, GridColDef, useGridApiRef, GridApi } from '@mui/x-data-grid';
 import DataGridFooter from 'components/common/DataGridFooter';
 import ActionMenu from 'components/common/ActionMenu';
 import Image from 'components/base/Image';
-import { rows } from 'data/complexTableData';
+import { formatNumber } from 'helpers/formatNumber';
+import { rows } from 'data/recentOrdersData';
 
 const actions = [
   {
@@ -48,19 +50,26 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     align: 'left',
     flex: 2,
     minWidth: 220,
-    renderCell: (params) => (
-      <Stack height={1} spacing={1.5} alignItems="center" justifyContent="flex-start">
-        <Image
-          src={params.value.image}
-          height={30}
-          width={30}
-          sx={{ objectFit: 'cover', borderRadius: 1.5 }}
-        />
-        <Typography variant="caption" fontWeight={600}>
-          {params.value.name}
-        </Typography>
-      </Stack>
-    ),
+    valueGetter: (params: { name: string; image: string }) => {
+      return params.name;
+    },
+    renderCell: (params) => {
+      console.log(params);
+      return (
+        <Stack height={1} spacing={1.5} alignItems="center" justifyContent="flex-start">
+          <Image
+            src={params.row.product.image}
+            height={30}
+            width={30}
+            sx={{ objectFit: 'cover', borderRadius: 1.5 }}
+          />
+          <Typography variant="caption" fontWeight={600}>
+            {params.row.product.name}
+          </Typography>
+        </Stack>
+      );
+    },
+    sortComparator: (v1, v2) => v1.localeCompare(v2),
   },
   {
     field: 'price',
@@ -69,6 +78,15 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     editable: false,
     flex: 1,
     minWidth: 140,
+    renderCell: (params) => (
+      <Typography variant="caption">
+        {formatNumber(params.value, {
+          style: 'currency',
+          currency: 'USD',
+          maximumFractionDigits: 2,
+        })}
+      </Typography>
+    ),
   },
   {
     field: 'inStock',
@@ -76,42 +94,63 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 140,
+    minWidth: 100,
   },
   {
     field: 'totalOrder',
     headerName: 'Total Order',
     editable: false,
-    align: 'left',
+    align: 'center',
+    headerAlign: 'center',
     flex: 2,
     minWidth: 140,
+    renderCell: (params) => (
+      <Stack direction="column" alignItems="center" justifyContent="center" height={1}>
+        <Chip label={params.value} size="small" color="secondary" sx={{ borderRadius: 1.75 }} />
+      </Stack>
+    ),
   },
   {
     field: 'pending',
     headerName: 'Pending',
-    headerAlign: 'left',
-    align: 'left',
+    headerAlign: 'center',
+    align: 'center',
     editable: false,
     flex: 1,
     minWidth: 140,
+    renderCell: (params) => (
+      <Stack direction="column" alignItems="center" justifyContent="center" height={1}>
+        <Chip label={params.value} size="small" color="warning" sx={{ borderRadius: 1.75 }} />
+      </Stack>
+    ),
   },
   {
     field: 'canceled',
     headerName: 'Canceled',
-    headerAlign: 'left',
-    align: 'left',
+    headerAlign: 'center',
+    align: 'center',
     editable: false,
     flex: 1,
     minWidth: 140,
+    renderCell: (params) => (
+      <Stack direction="column" alignItems="center" justifyContent="center" height={1}>
+        <Chip label={params.value} size="small" color="error" sx={{ borderRadius: 1.75 }} />
+      </Stack>
+    ),
   },
   {
     field: 'delevered',
     headerName: 'Delevered',
-    headerAlign: 'left',
-    align: 'left',
+    headerAlign: 'center',
+    align: 'center',
     editable: false,
     flex: 1,
-    minWidth: 100,
+    minWidth: 140,
+    renderCell: (params) => (
+      <Stack direction="column" alignItems="center" justifyContent="center" height={1}>
+        <Chip label={params.value} size="small" color="success" sx={{ borderRadius: 1.75 }} />
+      </Stack>
+    ),
   },
   {
     field: 'balance',
@@ -120,7 +159,16 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     align: 'right',
     editable: false,
     flex: 1,
-    minWidth: 140,
+    minWidth: 110,
+    renderCell: (params) => (
+      <Typography variant="caption">
+        {formatNumber(params.value, {
+          style: 'currency',
+          currency: 'USD',
+          maximumFractionDigits: 2,
+        })}
+      </Typography>
+    ),
   },
   {
     field: 'action',

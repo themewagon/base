@@ -5,20 +5,25 @@ const Chip: Components<Omit<Theme, 'components'>>['MuiChip'] = {
   styleOverrides: {
     root: {
       margin: 0,
-      fontWeight: 600,
+      fontWeight: 700,
+      minWidth: 50,
     },
     sizeSmall: ({ theme }) => ({
-      height: 24,
+      height: 28,
       padding: theme.spacing(0, 1),
       fontSize: theme.typography.caption.fontSize,
     }),
     sizeMedium: ({ theme }) => ({
-      height: 28,
+      height: 32,
       fontSize: theme.typography.body2.fontSize,
     }),
     colorPrimary: ({ theme }) => ({
       color: theme.palette.primary.main,
       backgroundColor: theme.palette.transparent.primary.main,
+    }),
+    colorSecondary: ({ theme }) => ({
+      color: theme.palette.secondary.light,
+      backgroundColor: theme.palette.transparent.secondary.light,
     }),
     colorSuccess: ({ theme }) => ({
       color: theme.palette.success.main,
@@ -30,7 +35,7 @@ const Chip: Components<Omit<Theme, 'components'>>['MuiChip'] = {
     }),
     colorError: ({ theme }) => ({
       color: theme.palette.error.dark,
-      backgroundColor:theme.palette.transparent.error.main,
+      backgroundColor: theme.palette.transparent.error.main,
     }),
     iconSmall: {
       width: 12,

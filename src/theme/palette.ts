@@ -16,6 +16,7 @@ import {
   transparentYellow,
   transparentWhite,
   transparentBlue,
+  transparentCyan,
   transparentViolet,
   indigo,
 } from './colors';
@@ -115,6 +116,7 @@ const palette: PaletteOptions = {
       dark: transparentViolet[700],
     },
     secondary: {
+      light: transparentCyan[500],
       main: transparentBlue[500],
     },
     info: {

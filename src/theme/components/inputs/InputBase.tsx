@@ -36,9 +36,6 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
         opacity: 1,
       },
     }),
-    inputSizeSmall: ({ theme }) => ({
-      marginBottom: theme.spacing(0.2),
-    }),
   },
 };
 
