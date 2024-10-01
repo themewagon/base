@@ -1,8 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import Sidebar from './Sidebar';
+import Sidebar from './sidebar';
 import Topbar from './topbar';
+import Footer from './footer';
 
 const MainLayout = ({ children }: React.PropsWithChildren) => {
   const [expand, setExpand] = React.useState(false);
@@ -30,6 +31,7 @@ const MainLayout = ({ children }: React.PropsWithChildren) => {
           miniDrawerWidth={miniDrawerWidth}
         />
         <Box mt={12}>{children}</Box>
+        <Footer />
       </Box>
     </Stack>
   );
