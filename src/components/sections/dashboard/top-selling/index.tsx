@@ -27,7 +27,7 @@ const actions = [
 
 const TopSelling = () => {
   return (
-    <Paper sx={{ height: 390 }}>
+    <Paper sx={{ height: 370 }}>
       <Stack mt={-0.5} alignItems="center" justifyContent="space-between">
         <Typography variant="h6" color="text.secondary">
           Top selling Products
