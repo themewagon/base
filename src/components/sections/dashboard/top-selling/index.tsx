@@ -36,7 +36,7 @@ const TopSelling = () => {
         <ActionMenu actions={actions} />
       </Stack>
 
-      <Box mt={2.5}>
+      <Box mt={3}>
         {topProductsData.slice(0, 2).map((item, index) => (
           <>
             <ProductCard data={item} />
