@@ -94,6 +94,7 @@ const palette: PaletteOptions = {
   error: {
     light: tomato[500],
     main: red[500],
+    dark: red[800],
   },
   text: {
     primary: darkblue[500],

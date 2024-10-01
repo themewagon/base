@@ -26,7 +26,15 @@ interface DrawerItemsProps {
 const DrawerItems = ({ expand }: DrawerItemsProps) => {
   return (
     <>
-      <Stack py={4} alignItems="center" justifyContent="center">
+      <Stack
+        py={4}
+        position="sticky"
+        top={0}
+        alignItems="center"
+        justifyContent="center"
+        bgcolor="info.lighter"
+        zIndex={1200}
+      >
         <ButtonBase component={Link} href="/" disableRipple>
           <Stack
             direction={expand ? 'row' : 'column'}
@@ -48,9 +56,10 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
             <ListItemButton
               sx={(theme) => ({
                 minHeight: 48,
-                background: item.active
-                  ? `linear-gradient(90deg, ${theme.palette.gradients.secondary.main} 0%, ${theme.palette.gradients.secondary.state} ${expand ? '22.5%' : '62%'})`
-                  : 'info.lighter',
+                background:
+                  item.active && item.path === '/'
+                    ? `linear-gradient(90deg, ${theme.palette.gradients.secondary.main} 0%, ${theme.palette.gradients.secondary.state} ${expand ? '22.5%' : '62%'})`
+                    : 'info.lighter',
               })}
             >
               <ListItemIcon sx={{ width: 48 }}>
@@ -64,7 +73,7 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
                           right: 3,
                           border: 2,
                           borderColor: theme.palette.info.lighter,
-                          bgcolor: expand ? 'text.disabled' : 'error.main',
+                          bgcolor: expand ? 'text.disabled' : 'error.dark',
                         },
                       })}
                     >
@@ -104,7 +113,12 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
                   label={item.messages}
                   color="error"
                   size="small"
-                  sx={{ opacity: expand ? 1 : 0, transition: 'opacity 0.3s ease' }}
+                  sx={{
+                    minWidth: 32,
+                    height: 24,
+                    opacity: expand ? 1 : 0,
+                    transition: 'opacity 0.3s ease',
+                  }}
                 />
               )}
             </ListItemButton>

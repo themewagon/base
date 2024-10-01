@@ -45,6 +45,7 @@ export const tomato = {
 
 export const red = {
   500: '#D11A2A',
+  800: '#a71522',
 };
 
 export const green = {

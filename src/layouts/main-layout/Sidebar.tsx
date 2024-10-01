@@ -23,6 +23,7 @@ const Sidebar = ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    overflowX: 'hidden',
   });
 
   const closedMixin = (theme: Theme): CSSObject => ({
@@ -31,6 +32,7 @@ const Sidebar = ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    overflowX: 'hidden',
   });
 
   const closeMobileDrawer = (open: boolean) => () => {
