@@ -1,12 +1,16 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Suspense, lazy } from 'react';
 import { Outlet, createBrowserRouter } from 'react-router-dom';
-import MainLayout from 'layouts/main-layout';
 import Splash from 'components/loader/Splash';
 import PageLoader from 'components/loader/PageLoader';
+import paths, { rootPaths } from './paths';
 
 const App = lazy(() => import('App'));
-const Dashboard = lazy(() => import('pages/Dashboard'));
+const MainLayout = lazy(() => import('layouts/main-layout'));
+const AuthLayout = lazy(() => import('layouts/auth-layout'));
+const Dashboard = lazy(() => import('pages/dashboard'));
+const SignIn = lazy(() => import('pages/authentication/SignIn'));
+const SignUp = lazy(() => import('pages/authentication/SignUp'));
 
 const router = createBrowserRouter([
   {
@@ -29,6 +33,20 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Dashboard />,
+          },
+        ],
+      },
+      {
+        path: rootPaths.authRoot,
+        element: <AuthLayout />,
+        children: [
+          {
+            path: paths.signin,
+            element: <SignIn />,
+          },
+          {
+            path: paths.signup,
+            element: <SignUp />,
           },
         ],
       },

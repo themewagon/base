@@ -1,4 +1,4 @@
-// import paths from 'routes/paths';
+import paths from 'routes/paths';
 
 export interface SubMenuItem {
   name: string;
@@ -11,7 +11,7 @@ export interface SubMenuItem {
 export interface MenuItem {
   id: string;
   subheader: string;
-  path?: string;
+  path: string;
   icon?: string;
   avatar?: string;
   active?: boolean;
@@ -30,57 +30,57 @@ const sitemap: MenuItem[] = [
   {
     id: 'analytics',
     subheader: 'Analytics',
-    path: '/analytics',
+    path: '#!',
     icon: 'solar:chart-square-bold',
   },
   {
     id: 'invoice',
     subheader: 'Invoice',
-    path: '/invoice',
+    path: '#!',
     icon: 'solar:ticket-bold',
   },
   {
     id: 'schedule',
     subheader: 'Schedule',
-    path: '/schedule',
+    path: '#!',
     icon: 'solar:document-text-bold',
   },
   {
     id: 'calendar',
     subheader: 'Calendar',
-    path: '/calendar',
+    path: '#!',
     icon: 'mage:calendar-2-fill',
   },
   {
     id: 'messages',
     subheader: 'Messages',
-    path: '/messages',
+    path: '#!',
     icon: 'mage:dashboard-chart-fill',
     messages: 49,
   },
   {
     id: 'notification',
     subheader: 'Notification',
-    path: '/notification',
+    path: '#!',
     icon: 'solar:bell-bold',
   },
   {
     id: 'settings',
     subheader: 'Settings',
-    path: '/settings',
+    path: '#!',
     icon: 'solar:settings-bold',
   },
   {
     id: 'signin',
     subheader: 'Sign In',
-    path: '/signin',
+    path: paths.signin,
     icon: 'mage:lock-fill',
     active: true,
   },
   {
     id: 'signup',
     subheader: 'Sign Up',
-    path: '/signup',
+    path: paths.signup,
     icon: 'mage:user-plus-fill',
     active: true,
   },

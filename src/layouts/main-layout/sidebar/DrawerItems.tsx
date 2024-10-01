@@ -54,6 +54,8 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
         {sitemap.map((item) => (
           <ListItem key={item.id} disablePadding>
             <ListItemButton
+              LinkComponent={Link}
+              href={item.path}
               sx={(theme) => ({
                 minHeight: 48,
                 background:
@@ -92,7 +94,6 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
 
               <ListItemText
                 primary={item.subheader}
-                color="red !mportant"
                 sx={[
                   expand
                     ? {

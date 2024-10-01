@@ -1,19 +1,21 @@
-import { PropsWithChildren } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
-import Paper from '@mui/material/Paper';
+import Image from 'components/base/Image';
+import SignInImage from 'assets/images/auth/signin-image.png';
+import SignUpImage from 'assets/images/auth/signup-image.png';
 
-const AuthLayout = ({ children }: PropsWithChildren) => {
+const AuthLayout = () => {
+  const location = useLocation();
+  const pathname = location.pathname.split('/').pop();
+
   return (
-    <Stack
-      component="main"
-      alignItems="center"
-      justifyContent="center"
-      px={1}
-      py={7}
-      width={1}
-      minHeight={'100vh'}
-    >
-      <Paper sx={{ py: 4, width: 1, maxWidth: 460 }}>{children}</Paper>
+    <Stack justifyContent="space-between" height="100vh">
+      <Stack px={3.5} py={2} width={450} height={1} bgcolor="info.lighter" overflow="scroll">
+        <Outlet />
+      </Stack>
+      <Stack flex={1} height={1} alignItems="center" justifyContent="center" direction="column">
+        <Image src={pathname === 'signin' ? SignInImage : SignUpImage} height="55%" />
+      </Stack>
     </Stack>
   );
 };
