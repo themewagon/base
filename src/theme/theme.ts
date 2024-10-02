@@ -7,6 +7,7 @@ import Stack from './components/layout/Stack';
 import Drawer from './components/navigation/Drawer';
 import Paper from './components/surfaces/Paper';
 import List from './components/list/List';
+import PaginationItem from './components/pagination/PaginationItem';
 import ListItemButton from './components/list/ListItemButton';
 import CssBaseline from './components/utils/CssBaseline';
 import ListItemIcon from './components/list/ListItemIcon';
@@ -53,6 +54,7 @@ export const theme = createTheme({
     MuiToolbar: Toolbar,
     MuiCheckbox: Checkbox,
     MuiFilledInput: FilledInput,
+    MuiPaginationItem: PaginationItem,
     MuiFormControlLabel: FormControlLabel,
     MuiInputAdornment: InputAdornment,
     MuiInputBase: InputBase,

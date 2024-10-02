@@ -1,7 +1,18 @@
 import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
+import IconifyIcon from 'components/base/IconifyIcon';
 
 const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
+  defaultProps: {
+    slots: {
+      columnSortedDescendingIcon: (props) => (
+        <IconifyIcon icon="solar:alt-arrow-up-bold" {...props} />
+      ),
+      columnSortedAscendingIcon: (props) => (
+        <IconifyIcon icon="solar:alt-arrow-down-bold" {...props} />
+      ),
+    },
+  },
   styleOverrides: {
     root: ({ theme }) => ({
       border: 'none',
@@ -74,6 +85,9 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     selectedRowCount: {
       display: 'none',
     },
+    sortIcon: ({ theme }) => ({
+      fontSize: theme.typography.caption.fontSize,
+    }),
     footerContainer: ({ theme }) => ({
       border: 0,
       borderTop: 1,
