@@ -6,7 +6,7 @@ const TopCards = () => {
   return (
     <Grid container spacing={3.75}>
       {topCardsData.map((item) => (
-        <Grid item key={item.id} xs={12} lg={3}>
+        <Grid item key={item.id} xs={12} sm={6} md={3}>
           <TopCard data={item} />
         </Grid>
       ))}

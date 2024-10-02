@@ -38,6 +38,15 @@ export const theme = createTheme({
   typography,
   palette,
   customShadows,
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 1080,
+      lg: 1420,
+      xl: 1600,
+    },
+  },
   components: {
     MuiStack: Stack,
     MuiDrawer: Drawer,

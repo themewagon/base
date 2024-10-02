@@ -11,16 +11,16 @@ const Dashboard = () => {
       <Grid item xs={12}>
         <TopCards />
       </Grid>
-      <Grid item xs={12} lg={7}>
+      <Grid item xs={12} md={7}>
         <Reports />
       </Grid>
-      <Grid item xs={12} lg={5}>
+      <Grid item xs={12} md={5}>
         <Analytics />
       </Grid>
-      <Grid item xs={12} lg={7}>
+      <Grid item xs={12} md={7}>
         <RecentOrders />
       </Grid>
-      <Grid item xs={12} lg={5}>
+      <Grid item xs={12} md={5}>
         <TopSelling />
       </Grid>
     </Grid>

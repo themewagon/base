@@ -16,8 +16,14 @@ const RecentOrders = () => {
   };
 
   return (
-    <Paper sx={{ height: 370, overflow: 'hidden' }}>
-      <Stack mt={-0.5} alignItems="center" justifyContent="space-between">
+    <Paper sx={{ height: { xs: 418, sm: 370 }, overflow: 'hidden' }}>
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        mt={-0.5}
+        spacing={1.5}
+        alignItems="center"
+        justifyContent="space-between"
+      >
         <Typography variant="h6" color="text.secondary">
           Recent Orders
         </Typography>
@@ -25,10 +31,10 @@ const RecentOrders = () => {
         <TextField
           variant="filled"
           size="small"
-          placeholder="Search Task"
+          placeholder="Search here"
           value={searchText}
           onChange={handleInputChange}
-          sx={{ width: 1, maxWidth: 240 }}
+          sx={{ width: 1, maxWidth: { xs: 260, sm: 240 } }}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -39,7 +45,7 @@ const RecentOrders = () => {
         />
       </Stack>
 
-      <Box mt={0.75} height={305} flex={1}>
+      <Box mt={{ xs: 1.5, sm: 0.75 }} height={305} flex={1}>
         <DataTable searchText={searchText} />
       </Box>
     </Paper>
