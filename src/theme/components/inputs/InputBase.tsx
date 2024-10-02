@@ -23,7 +23,7 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
       },
     }),
     colorSecondary: ({ theme }) => ({
-      backgroundColor: `${theme.palette.info.dark} !important`,
+      backgroundColor: `${theme.palette.info.main} !important`,
     }),
     sizeSmall: ({ theme }) => ({
       padding: theme.spacing(1, 1.25),
@@ -32,7 +32,7 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
     }),
     input: ({ theme }) => ({
       '&::placeholder': {
-        color: theme.palette.text.disabled,
+        color: theme.palette.neutral.dark,
         opacity: 1,
       },
     }),

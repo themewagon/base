@@ -9,16 +9,18 @@ const Divider: Components<Omit<Theme, 'components'>>['MuiDivider'] = {
       margin: theme.spacing(3, 0),
       backgroundColor: theme.palette.info.main,
       borderColor: theme.palette.info.lighter,
+      width: '100%',
 
       '&.MuiDivider-withChildren': {
         height: '0 !important',
-        color: theme.palette.text.secondary,
+        fontWeight: 600,
+        color: theme.palette.text.primary,
         backgroundColor: 'transparent',
         '&::before': {
-          backgroundColor: theme.palette.info.main,
+          backgroundColor: theme.palette.info.light,
         },
         '&::after': {
-          backgroundColor: theme.palette.info.main,
+          backgroundColor: theme.palette.info.light,
         },
       },
     }),

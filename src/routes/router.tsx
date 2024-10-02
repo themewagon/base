@@ -38,7 +38,13 @@ const router = createBrowserRouter([
       },
       {
         path: rootPaths.authRoot,
-        element: <AuthLayout />,
+        element: (
+          <AuthLayout>
+            <Suspense fallback={<PageLoader />}>
+              <Outlet />
+            </Suspense>
+          </AuthLayout>
+        ),
         children: [
           {
             path: paths.signin,

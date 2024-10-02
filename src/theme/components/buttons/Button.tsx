@@ -27,7 +27,7 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       '&:hover': { backgroundColor: theme.palette.secondary.light },
     }),
     sizeLarge: ({ theme }) => ({
-      padding: theme.spacing(0.875, 3),
+      padding: theme.spacing(1, 3),
       fontSize: theme.typography.body1.fontSize,
     }),
     sizeMedium: ({ theme }) => ({
@@ -39,7 +39,7 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       fontSize: theme.typography.caption.fontSize,
     }),
     startIcon: {
-      marginRight: 6,
+      marginRight: 12,
     },
     endIcon: {
       marginLeft: 6,

@@ -32,6 +32,7 @@ export const violet = {
 export const blue = {
   300: '#80ABFF',
   500: '#5B93FF',
+  800: '#385C8E',
 };
 
 export const cyan = {

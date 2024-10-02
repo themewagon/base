@@ -79,6 +79,7 @@ const palette: PaletteOptions = {
   secondary: {
     light: cyan[500],
     main: blue[500],
+    dark: blue[800],
   },
   info: {
     lighter: white[100],

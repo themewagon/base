@@ -21,6 +21,7 @@ import Checkbox from './components/inputs/Checkbox';
 import FilledInput from './components/inputs/FilledInput';
 import FormControlLabel from './components/inputs/FormControlLabel';
 import InputAdornment from './components/inputs/InputAdornment';
+import InputLabel from './components/inputs/InputLabel';
 import InputBase from './components/inputs/InputBase';
 import Select from './components/inputs/Select';
 import MenuItem from './components/list/MenuItem';
@@ -58,6 +59,7 @@ export const theme = createTheme({
     MuiFormControlLabel: FormControlLabel,
     MuiInputAdornment: InputAdornment,
     MuiInputBase: InputBase,
+    MuiInputLabel: InputLabel,
     MuiDivider: Divider,
     MuiSelect: Select,
     MuiRating: Rating,
