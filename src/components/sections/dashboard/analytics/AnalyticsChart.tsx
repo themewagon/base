@@ -43,7 +43,7 @@ const AnalyticsChart = ({ data, ...rest }: AnalyticsChartProps) => {
       },
       legend: {
         bottom: '0%',
-        itemGap: 40,
+        itemGap: 35,
         icon: 'roundRect',
         itemWidth: 15,
         itemHeight: 15,
@@ -57,7 +57,7 @@ const AnalyticsChart = ({ data, ...rest }: AnalyticsChartProps) => {
       series: [
         {
           type: 'pie',
-          radius: ['46%', '60%'],
+          radius: ['60%', '80%'],
           avoidLabelOverlap: false,
           startAngle: 90,
           label: {
@@ -86,7 +86,7 @@ const AnalyticsChart = ({ data, ...rest }: AnalyticsChartProps) => {
         },
         {
           type: 'pie',
-          radius: ['51%', '60%'],
+          radius: ['68%', '80%'],
           silent: true,
           label: {
             show: false,

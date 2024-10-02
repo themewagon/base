@@ -1,10 +1,11 @@
 import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
 const Footer = () => {
   return (
     <Typography
       mt={0.5}
-      px={1}
+      px={{ xs: 0, md: 3.75 }}
       py={3}
       color="text.secondary"
       variant="body2"
@@ -12,7 +13,10 @@ const Footer = () => {
       letterSpacing={0.5}
       fontWeight={500}
     >
-      HellO!
+      Made with ❤️ by{' '}
+      <Link href="https://themewagon.com/" target="_blank" rel="noreferrer" fontWeight={600}>
+        {'ThemeWagon'}
+      </Link>
     </Typography>
   );
 };
