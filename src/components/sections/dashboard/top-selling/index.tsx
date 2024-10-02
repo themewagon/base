@@ -1,4 +1,5 @@
 import { topProductsData } from 'data/topProductsData';
+import React from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
@@ -38,10 +39,10 @@ const TopSelling = () => {
 
       <Box mt={3}>
         {topProductsData.slice(0, 2).map((item, index) => (
-          <>
+          <React.Fragment key={item.id}>
             <ProductCard data={item} />
             {index !== 1 && <Divider  />}
-          </>
+          </React.Fragment>
         ))}
       </Box>
     </Paper>

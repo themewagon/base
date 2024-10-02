@@ -54,7 +54,6 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
       return params.name;
     },
     renderCell: (params) => {
-      console.log(params);
       return (
         <Stack height={1} spacing={1.5} alignItems="center" justifyContent="flex-start">
           <Image
