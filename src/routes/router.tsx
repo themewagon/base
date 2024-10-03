@@ -11,6 +11,7 @@ const AuthLayout = lazy(() => import('layouts/auth-layout'));
 const Dashboard = lazy(() => import('pages/dashboard'));
 const SignIn = lazy(() => import('pages/authentication/SignIn'));
 const SignUp = lazy(() => import('pages/authentication/SignUp'));
+const ResetPassword = lazy(() => import('pages/authentication/ResetPassword'));
 
 const router = createBrowserRouter([
   {
@@ -39,20 +40,30 @@ const router = createBrowserRouter([
       {
         path: rootPaths.authRoot,
         element: (
-          <AuthLayout>
-            <Suspense fallback={<PageLoader />}>
-              <Outlet />
-            </Suspense>
-          </AuthLayout>
+          <Suspense fallback={<Splash />}>
+            <Outlet />
+          </Suspense>
         ),
         children: [
           {
             path: paths.signin,
-            element: <SignIn />,
+            element: (
+              <AuthLayout>
+                <SignIn />
+              </AuthLayout>
+            ),
           },
           {
             path: paths.signup,
-            element: <SignUp />,
+            element: (
+              <AuthLayout>
+                <SignUp />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: paths.resetPassword,
+            element: <ResetPassword />,
           },
         ],
       },
