@@ -31,7 +31,6 @@ const ProductCard = ({ data }: ProductCardProps) => {
               fontWeight={500}
               display="block"
               mb={0.75}
-              noWrap
             >
               {data.title}
             </Typography>
