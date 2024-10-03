@@ -93,18 +93,18 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 100,
+    minWidth: 140,
   },
   {
     field: 'totalOrder',
     headerName: 'Total Order',
     editable: false,
-    align: 'center',
-    headerAlign: 'center',
+    headerAlign: 'left',
+    align: 'left',
     flex: 2,
     minWidth: 140,
     renderCell: (params) => (
-      <Stack direction="column" alignItems="center" justifyContent="center" height={1}>
+      <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
         <Chip label={params.value} size="small" color="secondary" sx={{ borderRadius: 1.75 }} />
       </Stack>
     ),
@@ -112,13 +112,13 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
   {
     field: 'pending',
     headerName: 'Pending',
-    headerAlign: 'center',
-    align: 'center',
+    headerAlign: 'left',
+    align: 'left',
     editable: false,
     flex: 1,
     minWidth: 140,
     renderCell: (params) => (
-      <Stack direction="column" alignItems="center" justifyContent="center" height={1}>
+      <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
         <Chip label={params.value} size="small" color="warning" sx={{ borderRadius: 1.75 }} />
       </Stack>
     ),
@@ -126,13 +126,13 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
   {
     field: 'canceled',
     headerName: 'Canceled',
-    headerAlign: 'center',
-    align: 'center',
+    headerAlign: 'left',
+    align: 'left',
     editable: false,
     flex: 1,
     minWidth: 140,
     renderCell: (params) => (
-      <Stack direction="column" alignItems="center" justifyContent="center" height={1}>
+      <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
         <Chip label={params.value} size="small" color="error" sx={{ borderRadius: 1.75 }} />
       </Stack>
     ),
@@ -140,13 +140,13 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
   {
     field: 'delevered',
     headerName: 'Delevered',
-    headerAlign: 'center',
-    align: 'center',
+    headerAlign: 'left',
+    align: 'left',
     editable: false,
     flex: 1,
     minWidth: 140,
     renderCell: (params) => (
-      <Stack direction="column" alignItems="center" justifyContent="center" height={1}>
+      <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
         <Chip label={params.value} size="small" color="success" sx={{ borderRadius: 1.75 }} />
       </Stack>
     ),
@@ -158,7 +158,7 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     align: 'right',
     editable: false,
     flex: 1,
-    minWidth: 110,
+    minWidth: 100,
     renderCell: (params) => (
       <Typography variant="caption">
         {formatNumber(params.value, {
