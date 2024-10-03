@@ -12,6 +12,7 @@ const Dashboard = lazy(() => import('pages/dashboard'));
 const SignIn = lazy(() => import('pages/authentication/SignIn'));
 const SignUp = lazy(() => import('pages/authentication/SignUp'));
 const ResetPassword = lazy(() => import('pages/authentication/ResetPassword'));
+const Error404 = lazy(() => import('pages/errors/Error404'));
 
 const routes = [
   {
@@ -66,6 +67,10 @@ const routes = [
             element: <ResetPassword />,
           },
         ],
+      },
+      {
+        path: '*',
+        element: <Error404 />,
       },
     ],
   },
