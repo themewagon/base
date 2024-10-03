@@ -13,7 +13,7 @@ const SignIn = lazy(() => import('pages/authentication/SignIn'));
 const SignUp = lazy(() => import('pages/authentication/SignUp'));
 const ResetPassword = lazy(() => import('pages/authentication/ResetPassword'));
 
-const router = createBrowserRouter([
+const routes = [
   {
     element: (
       <Suspense fallback={<Splash />}>
@@ -69,6 +69,8 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+];
+
+const router = createBrowserRouter(routes, { basename: '/base' });
 
 export default router;
