@@ -14,6 +14,18 @@ import ListItemIcon from './components/list/ListItemIcon';
 import ListItemText from './components/list/ListItemText';
 import MenuItem from './components/list/MenuItem';
 
+import Checkbox from './components/input/Checkbox';
+import FilledInput from './components/input/FilledInput';
+import FormContralLabel from './components/input/FormControlLabel';
+import InputAdornment from './components/input/InputAdornment';
+import InputBase from './components/input/InputBase';
+import InputLabel from './components/input/InputLabel';
+import OutlinedInput from './components/input/OutlinedInput';
+import Select from './components/input/Select';
+
+import Stack from './components/layout/Stack';
+import Paper from './components/surface/Paper';
+
 import CssBaseline from './components/utils/CssBaseline';
 
 export const theme = createTheme({
@@ -30,16 +42,28 @@ export const theme = createTheme({
     },
   },
   components: {
+    MuiButton: Button,
+    MuiButtonBase: ButtonBase,
+    MuiIconButton: IconButton,
+    MuiToolbar: Toolbar,
+
     MuiList: List,
     MuiListItemButton: ListItemButton,
     MuiListItemIcon: ListItemIcon,
     MuiListItemText: ListItemText,
     MuiMenuItem: MenuItem,
-    
-    MuiButton: Button,
-    MuiButtonBase: ButtonBase,
-    MuiIconButton: IconButton,
-    MuiToolbar: Toolbar,
+
+    MuiCheckbox: Checkbox,
+    MuiFilledInput: FilledInput,
+    MuiFormControlLabel: FormContralLabel,
+    MuiInputAdornment: InputAdornment,
+    MuiInputBase: InputBase,
+    MuiInputLabel: InputLabel,
+    MuiOutlinedInput: OutlinedInput,
+    MuiSelect: Select,
+
+    MuiStack: Stack,
+    MuiPaper: Paper,
 
     MuiCssBaseline: CssBaseline,
   },

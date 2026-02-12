@@ -1,0 +1,19 @@
+import type { Theme, Components } from '@mui/material/styles';
+
+const InputLabel: Components<Omit<Theme, 'components'>>['MuiInputLabel'] = {
+  defaultProps: {
+    shrink: true,
+  },
+  styleOverrides: {
+    root: ({ theme }) => ({
+      left: 0,
+      top: theme.spacing(-3.75),
+      fontSize: theme.typography.body1.fontSize,
+      color: theme.palette.text.primary,
+      transform: 'none',
+      fontWeight: 600,
+    }),
+  },
+};
+
+export default InputLabel;
