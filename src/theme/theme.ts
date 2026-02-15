@@ -26,6 +26,14 @@ import Select from './components/input/Select';
 import Stack from './components/layout/Stack';
 import Paper from './components/surface/Paper';
 
+import Card from './components/card/Card';
+import CardContent from './components/card/CardContent';
+import CardMedia from './components/card/CardMedia';
+import AppBar from './components/navigation/AppBar';
+import Drawer from './components/navigation/Drawer';
+import Link from './components/navigation/Link';
+import PaginationItem from './components/pagination/PaginationItem';
+
 import CssBaseline from './components/utils/CssBaseline';
 
 export const theme = createTheme({
@@ -61,6 +69,15 @@ export const theme = createTheme({
     MuiInputLabel: InputLabel,
     MuiOutlinedInput: OutlinedInput,
     MuiSelect: Select,
+
+    MuiCard: Card,
+    MuiCardContent: CardContent,
+    MuiCardMedia: CardMedia,
+
+    MuiLink: Link,
+    MuiAppBar: AppBar,
+    MuiDrawer: Drawer,
+    MuiPaginationItem: PaginationItem,
 
     MuiStack: Stack,
     MuiPaper: Paper,
