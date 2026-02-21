@@ -1,3 +1,4 @@
+import type {} from '@mui/x-data-grid/themeAugmentation';
 import { createTheme } from '@mui/material/styles';
 import palette from './palette';
 import typography from './typography';
@@ -34,6 +35,10 @@ import Drawer from './components/navigation/Drawer';
 import Link from './components/navigation/Link';
 import PaginationItem from './components/pagination/PaginationItem';
 
+import Chip from './components/data-display/Chip';
+import Divider from './components/data-display/Divider';
+import Rating from './components/data-display/Rating';
+import DataGrid from './components/data-grid/DataGrid';
 import CssBaseline from './components/utils/CssBaseline';
 
 export const theme = createTheme({
@@ -82,6 +87,10 @@ export const theme = createTheme({
     MuiStack: Stack,
     MuiPaper: Paper,
 
+    MuiChip: Chip,
+    MuiDivider: Divider,
+    MuiRating: Rating,
+    MuiDataGrid: DataGrid,
     MuiCssBaseline: CssBaseline,
   },
 });
