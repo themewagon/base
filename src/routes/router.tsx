@@ -1,6 +1,8 @@
 import { Suspense, lazy } from 'react';
 import { Outlet, createBrowserRouter } from 'react-router';
 
+import MainLayout from 'layouts/main-layout';
+
 const App = lazy(() => import('App'));
 const Dashboard = lazy(() => import('pages/Dashboard'));
 
@@ -15,9 +17,11 @@ const routes = [
       {
         path: '/',
         element: (
-          <Suspense fallback={<p>Loading...</p>}>
-            <Outlet />
-          </Suspense>
+          <MainLayout>
+            <Suspense fallback={<p>Loading...</p>}>
+              <Outlet />
+            </Suspense>
+          </MainLayout>
         ),
         children: [
           {
