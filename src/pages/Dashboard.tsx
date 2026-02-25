@@ -1,7 +1,14 @@
-import { Typography } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import KPIs from 'components/sections/dashboard/kpis/KPIs';
 
 const Dashboard = () => {
-  return <Typography variant="h1">Dashboard</Typography>;
+  return (
+    <Grid container spacing={3.75} px={3.75}>
+      <Grid size={{ xs: 12 }}>
+        <KPIs />
+      </Grid>
+    </Grid>
+  );
 };
 
 export default Dashboard;
