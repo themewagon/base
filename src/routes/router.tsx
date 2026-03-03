@@ -8,13 +8,16 @@ import Signin from 'pages/authentication/Signin';
 import Signup from 'pages/authentication/Signup';
 import AuthLayout from 'layouts/auth-layout';
 
+import Splash from 'components/loader/Splash';
+import PageLoader from 'components/loader/PageLoader';
+
 const App = lazy(() => import('App'));
 const Dashboard = lazy(() => import('pages/Dashboard'));
 
 const routes = [
   {
     element: (
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Splash />}>
         <App />
       </Suspense>
     ),
@@ -23,7 +26,7 @@ const routes = [
         path: '/',
         element: (
           <MainLayout>
-            <Suspense fallback={<p>Loading...</p>}>
+            <Suspense fallback={<PageLoader />}>
               <Outlet />
             </Suspense>
           </MainLayout>
@@ -38,26 +41,18 @@ const routes = [
       {
         path: rootPaths.authRoot,
         element: (
-          <Suspense fallback={<p>Loading...</p>}>
+          <AuthLayout>
             <Outlet />
-          </Suspense>
+          </AuthLayout>
         ),
         children: [
           {
             path: paths.signin,
-            element: (
-              <AuthLayout>
-                <Signin />
-              </AuthLayout>
-            ),
+            element: <Signin />,
           },
           {
             path: paths.signup,
-            element: (
-              <AuthLayout>
-                <Signup />
-              </AuthLayout>
-            ),
+            element: <Signup />,
           },
           {
             path: paths.resetPassword,
