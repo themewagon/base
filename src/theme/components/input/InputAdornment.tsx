@@ -1,16 +1,23 @@
+import { boxClasses, iconButtonClasses, inputAdornmentClasses } from '@mui/material';
 import type { Theme, Components } from '@mui/material/styles';
 
 const InputAdornment: Components<Omit<Theme, 'components'>>['MuiInputAdornment'] = {
   styleOverrides: {
     root: ({ theme }) => ({
-      margin: '0 !important',
       color: theme.palette.neutral.dark,
       fontSize: theme.typography.h5.fontSize,
+      margin: '0 !important',
+      padding: 0,
 
-      '&.MuiInputAdornment-sizeSmall': {
-        '& .MuiBox-root': {
+      [`&.${inputAdornmentClasses.sizeSmall}`]: {
+        [`& .${boxClasses.root}`]: {
           fontSize: theme.typography.h6.fontSize,
         },
+      },
+
+      [`& .${iconButtonClasses.root}`]: {
+        margin: 0,
+        padding: 0,
       },
     }),
     positionStart: ({ theme }) => ({

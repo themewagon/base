@@ -3,15 +3,15 @@ import Link from '@mui/material/Link';
 import List from '@mui/material/List';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import Badge from '@mui/material/Badge';
 import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import ListItemText, { listItemTextClasses } from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
+import Badge, { badgeClasses } from '@mui/material/Badge';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 import sitemap from 'routes/sitemap';
@@ -70,7 +70,7 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
                     <Badge
                       variant="dot"
                       sx={(theme) => ({
-                        '& .MuiBadge-badge': {
+                        [`& .${badgeClasses.badge}`]: {
                           top: 4,
                           right: 3,
                           border: 2,
@@ -103,7 +103,7 @@ const DrawerItems = ({ expand }: DrawerItemsProps) => {
                         opacity: 0,
                       },
                   {
-                    '& .MuiListItemText-primary': {
+                    [`& .${listItemTextClasses.primary}`]: {
                       color: item.active ? 'primary.main' : 'text.disabled',
                     },
                   },

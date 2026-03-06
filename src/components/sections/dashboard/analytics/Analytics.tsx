@@ -56,7 +56,10 @@ const Analytics = () => {
         <ActionMenu actions={actions} />
       </Stack>
 
-      <AnalyticsChart data={AnalyticsData} sx={{ mt: -5.5, mx: 'auto', width: 300, height: '370px !important' }} />
+      <AnalyticsChart
+        data={AnalyticsData}
+        sx={{ mt: -5.5, mx: 'auto', width: 300, height: '370px !important' }}
+      />
     </Paper>
   );
 };

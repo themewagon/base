@@ -1,5 +1,6 @@
 import type { Theme, Components } from '@mui/material/styles';
 import IconifyIcon from 'components/base/IconifyIcon';
+import { boxClasses } from '@mui/material';
 
 const Checkbox: Components<Omit<Theme, 'components'>>['MuiCheckbox'] = {
   defaultProps: {
@@ -13,12 +14,12 @@ const Checkbox: Components<Omit<Theme, 'components'>>['MuiCheckbox'] = {
     }),
     sizeMedium: ({ theme }) => ({
       padding: theme.spacing(0.75),
-      '& .MuiBox-root': {
+      [`& .${boxClasses.root}`]: {
         fontSize: theme.typography.h6.fontSize,
       },
     }),
     sizeSmall: ({ theme }) => ({
-      '& .MuiBox-root': {
+      [`& .${boxClasses.root}`]: {
         fontSize: theme.typography.body1.fontSize,
       },
     }),
