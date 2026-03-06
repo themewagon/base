@@ -10,6 +10,7 @@ import AuthLayout from 'layouts/auth-layout';
 
 import Splash from 'components/loader/Splash';
 import PageLoader from 'components/loader/PageLoader';
+import Error404 from 'pages/Error404';
 
 const App = lazy(() => import('App'));
 const Dashboard = lazy(() => import('pages/Dashboard'));
@@ -62,7 +63,7 @@ const routes = [
       },
       {
         path: '*',
-        element: <h1>404 Not Found!</h1>,
+        element: <Error404 />,
       },
     ],
   },
