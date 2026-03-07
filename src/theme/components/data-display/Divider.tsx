@@ -1,3 +1,4 @@
+import { dividerClasses } from '@mui/material';
 import type { Theme, Components } from '@mui/material/styles';
 
 const Divider: Components<Omit<Theme, 'components'>>['MuiDivider'] = {
@@ -10,7 +11,7 @@ const Divider: Components<Omit<Theme, 'components'>>['MuiDivider'] = {
       borderColor: theme.palette.info.lighter,
       width: '100%',
 
-      '&.MuiDivider-withChildren': {
+      [`&.${dividerClasses.withChildren}`]: {
         height: '0 !important',
         fontWeight: 600,
         color: theme.palette.text.primary,

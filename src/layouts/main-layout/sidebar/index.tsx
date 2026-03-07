@@ -1,5 +1,5 @@
 import { Theme, CSSObject } from '@mui/material/styles';
-import Drawer from '@mui/material/Drawer';
+import Drawer, { drawerClasses } from '@mui/material/Drawer';
 import DrawerItems from './DrawerItems';
 
 interface SidebarProps {
@@ -46,7 +46,7 @@ const Sidebar = ({
         onClose={closeMobileDrawer(false)}
         sx={(theme) => ({
           ...openedMixin(theme),
-          '& .MuiDrawer-paper': { ...openedMixin(theme) },
+          [`& .${drawerClasses.paper}`]: { ...openedMixin(theme) },
           display: { xs: 'block', lg: 'none' },
         })}
       >
@@ -59,11 +59,11 @@ const Sidebar = ({
           expand
             ? (theme) => ({
                 ...openedMixin(theme),
-                '& .MuiDrawer-paper': { ...openedMixin(theme) },
+                [`& .${drawerClasses.paper}`]: { ...openedMixin(theme) },
               })
             : (theme) => ({
                 ...closedMixin(theme),
-                '& .MuiDrawer-paper': { ...closedMixin(theme) },
+                [`& .${drawerClasses.paper}`]: { ...closedMixin(theme) },
               }),
           { display: { xs: 'none', lg: 'block' } },
         ]}

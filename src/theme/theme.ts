@@ -4,10 +4,10 @@ import palette from './palette';
 import typography from './typography';
 import customShadows from './shadows';
 
-import Button from './components/buttons/Button';
-import ButtonBase from './components/buttons/ButtonBase';
-import IconButton from './components/buttons/IconButton';
-import Toolbar from './components/buttons/Toolbar';
+import Button from './components/button/Button';
+import ButtonBase from './components/button/ButtonBase';
+import IconButton from './components/button/IconButton';
+import Toolbar from './components/button/Toolbar';
 
 import List from './components/list/List';
 import ListItemButton from './components/list/ListItemButton';

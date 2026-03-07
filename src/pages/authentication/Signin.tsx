@@ -96,29 +96,31 @@ const Signin = () => {
           sx={{ mt: 6 }}
           fullWidth
           required
-          InputProps={{
-            endAdornment: (
-              <InputAdornment
-                position="end"
-                sx={{
-                  opacity: user.password ? 1 : 0,
-                  pointerEvents: user.password ? 'auto' : 'none',
-                }}
-              >
-                <IconButton
-                  size="small"
-                  aria-label="toggle password visibility"
-                  onClick={() => setShowPassword(!showPassword)}
-                  sx={{ border: 'none', bgcolor: 'transparent !important' }}
-                  edge="end"
+          slotProps={{
+            input: {
+              endAdornment: (
+                <InputAdornment
+                  position="end"
+                  sx={{
+                    opacity: user.password ? 1 : 0,
+                    pointerEvents: user.password ? 'auto' : 'none',
+                  }}
                 >
-                  <IconifyIcon
-                    icon={showPassword ? 'mdi:visibility' : 'mdi:visibility-off'}
-                    color="neutral.main"
-                  />
-                </IconButton>
-              </InputAdornment>
-            ),
+                  <IconButton
+                    size="small"
+                    aria-label="toggle password visibility"
+                    onClick={() => setShowPassword(!showPassword)}
+                    sx={{ border: 'none', bgcolor: 'transparent !important' }}
+                    edge="end"
+                  >
+                    <IconifyIcon
+                      icon={showPassword ? 'mdi:visibility' : 'mdi:visibility-off'}
+                      color="neutral.main"
+                    />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            },
           }}
         />
 

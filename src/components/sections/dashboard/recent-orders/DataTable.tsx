@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { DataGrid, GridColDef, useGridApiRef, GridApi } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import DataGridFooter from 'components/common/DataGridFooter';
 import ActionMenu from 'components/common/ActionMenu';
 import Image from 'components/base/Image';
@@ -187,11 +187,11 @@ interface TaskOverviewTableProps {
 }
 
 const DataTable = ({ searchText }: TaskOverviewTableProps) => {
-  const apiRef = useGridApiRef<GridApi>();
+  const apiRef = useGridApiRef();
 
   useEffect(() => {
-    apiRef.current.setQuickFilterValues(searchText.split(/\b\W+\b/).filter((word) => word !== ''));
-  }, [searchText]);
+    apiRef.current?.setQuickFilterValues(searchText.split(/\b\W+\b/).filter((word) => word !== ''));
+  }, [searchText, apiRef]);
 
   return (
     <DataGrid
@@ -200,6 +200,7 @@ const DataTable = ({ searchText }: TaskOverviewTableProps) => {
       columns={columns}
       rows={rows}
       rowHeight={50}
+      columnHeaderHeight={47}
       disableColumnResize
       disableColumnMenu
       disableColumnSelector

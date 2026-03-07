@@ -5,10 +5,10 @@ const DataGrid: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = {
   defaultProps: {
     slots: {
       columnSortedDescendingIcon: (props) => (
-        <IconifyIcon icon="solar:alt-arrow-up-bold" {...(props as any)} />
+        <IconifyIcon icon="solar:alt-arrow-up-bold" {...(props as Record<string, unknown>)} />
       ),
       columnSortedAscendingIcon: (props) => (
-        <IconifyIcon icon="solar:alt-arrow-down-bold" {...(props as any)} />
+        <IconifyIcon icon="solar:alt-arrow-down-bold" {...(props as Record<string, unknown>)} />
       ),
     },
   },

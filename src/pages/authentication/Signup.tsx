@@ -8,9 +8,9 @@ import ButtonBase from '@mui/material/ButtonBase';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox, { checkboxClasses } from '@mui/material/Checkbox';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Checkbox from '@mui/material/Checkbox';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 import Logo from 'assets/images/Logo.png';
@@ -126,29 +126,31 @@ const Signup = () => {
           sx={{ mt: 6 }}
           fullWidth
           required
-          InputProps={{
-            endAdornment: (
-              <InputAdornment
-                position="end"
-                sx={{
-                  opacity: user.password ? 1 : 0,
-                  pointerEvents: user.password ? 'auto' : 'none',
-                }}
-              >
-                <IconButton
-                  size="small"
-                  aria-label="toggle password visibility"
-                  onClick={() => setShowPassword(!showPassword)}
-                  sx={{ border: 'none', bgcolor: 'transparent !important' }}
-                  edge="end"
+          slotProps={{
+            input: {
+              endAdornment: (
+                <InputAdornment
+                  position="end"
+                  sx={{
+                    opacity: user.password ? 1 : 0,
+                    pointerEvents: user.password ? 'auto' : 'none',
+                  }}
                 >
-                  <IconifyIcon
-                    icon={showPassword ? 'mdi:visibility' : 'mdi:visibility-off'}
-                    color="neutral.main"
-                  />
-                </IconButton>
-              </InputAdornment>
-            ),
+                  <IconButton
+                    size="small"
+                    aria-label="toggle password visibility"
+                    onClick={() => setShowPassword(!showPassword)}
+                    sx={{ border: 'none', bgcolor: 'transparent !important' }}
+                    edge="end"
+                  >
+                    <IconifyIcon
+                      icon={showPassword ? 'mdi:visibility' : 'mdi:visibility-off'}
+                      color="neutral.main"
+                    />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            },
           }}
         />
 
@@ -171,7 +173,7 @@ const Signup = () => {
             mt: 2.75,
             ml: -0.75,
             alignItems: 'flex-start',
-            '& .MuiCheckbox-root': { mt: -0.75 },
+            [`& .${checkboxClasses.root}`]: { mt: -0.75 },
           }}
         />
 

@@ -7,6 +7,7 @@ import {
   useGridApiContext,
   useGridSelector,
   gridPageSizeSelector,
+  gridRowCountSelector,
 } from '@mui/x-data-grid';
 
 const DataGridFooter = () => {
@@ -14,7 +15,7 @@ const DataGridFooter = () => {
   const page = useGridSelector(apiRef, gridPageSelector);
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
   const pageSize = useGridSelector(apiRef, gridPageSizeSelector);
-  const rowsCount = apiRef.current.getRowsCount();
+  const rowsCount = useGridSelector(apiRef, gridRowCountSelector);
 
   return (
     <Stack alignItems="center" justifyContent="space-between" width={1}>

@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
-import Menu from '@mui/material/Menu';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
+import Menu, { menuClasses } from '@mui/material/Menu';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Profile from 'assets/images/Profile.png';
+import { listClasses } from '@mui/material';
 
 interface MenuItems {
   id: number;
@@ -90,11 +91,11 @@ const ProfileMenu = () => {
         onClick={handleProfileMenuClose}
         sx={{
           mt: 1.5,
-          '& .MuiList-root': {
+          [`& .${listClasses.root}`]: {
             p: 0,
             width: 230,
           },
-          '& .MuiMenu-paper': { p: '0 !important' },
+          [`& .${menuClasses.paper}`]: { p: '0 !important' },
         }}
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
