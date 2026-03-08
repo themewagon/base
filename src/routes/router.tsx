@@ -3,10 +3,12 @@ import { Outlet, createBrowserRouter } from 'react-router';
 import paths, { rootPaths } from './paths';
 
 import MainLayout from 'layouts/main-layout';
-import ResetPassword from 'pages/authentication/ResetPassword';
+import AuthLayout from 'layouts/auth-layout';
+
 import Signin from 'pages/authentication/Signin';
 import Signup from 'pages/authentication/Signup';
-import AuthLayout from 'layouts/auth-layout';
+import ResetPassword from 'pages/authentication/ResetPassword';
+import Error404 from 'pages/Error404';
 
 import Splash from 'components/loader/Splash';
 import PageLoader from 'components/loader/PageLoader';
@@ -62,7 +64,7 @@ const routes = [
       },
       {
         path: '*',
-        element: <h1>404 Not Found!</h1>,
+        element: <Error404 />,
       },
     ],
   },
