@@ -1,13 +1,15 @@
 {
   "name": "base",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "predeploy": "vite build && cp ./dist/index.html ./dist/404.html",
+    "deploy": "gh-pages -d dist",
     "format": "npx prettier . --write"
   },
   "dependencies": {
@@ -17,6 +19,7 @@
     "@mui/x-data-grid": "^8.27.0",
     "echarts": "^6.0.0",
     "echarts-for-react": "^3.0.6",
+    "gh-pages": "^6.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router": "^7.13.0",
